@@ -390,6 +390,158 @@ img{max-width:100%}
 img[alt*="Private"], img[alt*="private cabin"]{background:#eef4ff}
 .object-center{object-position:center}
 
+
+/* ════════════════ JOBREADY FINAL NAV STRUCTURE 2026 ════════════════ */
+.jr-header,
+.jr-site-header,
+.nav,
+.breadcrumb,
+nav.breadcrumb,
+div.breadcrumb,
+section.breadcrumb,
+[class*="breadcrumb"]{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  overflow:hidden!important;
+}
+.jr-final-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(8,26,82,.08);
+  box-shadow:0 8px 28px rgba(15,23,42,.045);
+  font-family:'Plus Jakarta Sans',Arial,sans-serif;
+}
+.jr-final-header *{box-sizing:border-box}
+.jr-final-nav{
+  max-width:1320px;
+  min-height:74px;
+  margin:0 auto;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns:minmax(170px,220px) 1fr auto;
+  align-items:center;
+  gap:22px;
+}
+.jr-final-logo{
+  font-family:'Outfit','Plus Jakarta Sans',Arial,sans-serif;
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-.055em;
+  color:#0f172a;
+  text-decoration:none;
+  white-space:nowrap;
+  line-height:1;
+}
+.jr-final-logo span{color:#003BFF}
+.jr-final-menu{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  min-width:0;
+}
+.jr-final-menu a{
+  color:#64748b;
+  text-decoration:none;
+  font-size:10.5px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.075em;
+  line-height:1.12;
+  padding:12px 10px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition:all .2s ease;
+}
+.jr-final-menu a:hover{
+  color:#003BFF;
+  background:#EFF6FF;
+  box-shadow:inset 0 0 0 1px #DBEAFE;
+}
+.jr-final-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 18px;
+  border-radius:12px;
+  background:#003BFF;
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  box-shadow:0 10px 22px rgba(0,59,255,.22);
+  white-space:nowrap;
+  transition:all .2s ease;
+}
+.jr-final-cta:hover{
+  background:#0832c8;
+  transform:translateY(-1px);
+}
+.jr-final-toggle{
+  display:none;
+  width:42px;
+  height:42px;
+  border:1px solid #E2E8F0;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.jr-final-mobile{
+  display:none;
+  background:#fff;
+  border-top:1px solid #E5E7EB;
+  padding:10px 18px 16px;
+}
+.jr-final-mobile a{
+  display:block;
+  color:#334155;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  padding:13px 12px;
+  border-radius:10px;
+}
+.jr-final-mobile a:hover{
+  background:#EFF6FF;
+  color:#003BFF;
+}
+body.jr-nav-open .jr-final-mobile{display:block}
+@media(max-width:1220px){
+  .jr-final-menu a{font-size:10px;padding:11px 7px}
+  .jr-final-nav{gap:14px}
+  .jr-final-cta{padding:0 14px}
+}
+@media(max-width:980px){
+  .jr-final-nav{
+    display:flex;
+    min-height:66px;
+  }
+  .jr-final-logo{margin-right:auto}
+  .jr-final-menu{display:none}
+  .jr-final-toggle{display:inline-flex}
+  .jr-final-cta{display:none}
+}
+@media(max-width:560px){
+  .jr-final-nav{min-height:62px;padding:0 14px}
+  .jr-final-logo{font-size:21px}
+}
+
 </style>
 
 <!-- Production SEO Schema Start -->
@@ -398,8 +550,45 @@ img[alt*="Private"], img[alt*="private cabin"]{background:#eef4ff}
 <!-- Production SEO Schema End -->
 </head>
 <body>
-<!-- INDEX_UPDATE: enterprise-nav-connected-2026 -->
+<!-- INDEX_UPDATE: final-nav-structure-enterprise-page-2026 -->
 <div class="seo-preheader" style="display:none!important;visibility:hidden;mso-hide:all;opacity:0;color:transparent;height:0;width:0;overflow:hidden;max-height:0;max-width:0;line-height:0;font-size:0;">Fueling Founders. Scaling Startups. JobReady offers coworking space, virtual office, meeting rooms and startup infrastructure in Patna.</div>
+
+
+
+<!-- HEADER_VERSION: jobready-final-nav-structure-2026 -->
+<header class="jr-final-header" role="banner">
+  <div class="jr-final-nav">
+    <a href="index.html" class="jr-final-logo" aria-label="JobReady Home">JOBREADY<span>.</span></a>
+
+    <nav class="jr-final-menu" aria-label="Primary navigation">
+      <a href="index.html#solutions">Coworking</a>
+      <a href="jobready_virtual_office.html">Virtual Office</a>
+      <a href="company_registration.html">Company Registration</a>
+      <a href="business_services.html">Business Services</a>
+      <a href="tax_compliance.html">Tax & Compliance</a>
+      <a href="index.html#meeting-rooms">Meeting Rooms</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <button class="jr-final-toggle" type="button" aria-label="Toggle navigation" onclick="document.body.classList.toggle('jr-nav-open')">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <a class="jr-final-cta" href="https://wa.me/919172712982?text=Hi%2C%20I%20want%20to%20book%20a%20JobReady%20tour" target="_blank" rel="noopener">Book Tour</a>
+  </div>
+
+  <nav class="jr-final-mobile" aria-label="Mobile navigation">
+    <a href="index.html#solutions">Coworking</a>
+    <a href="jobready_virtual_office.html">Virtual Office</a>
+    <a href="company_registration.html">Company Registration</a>
+    <a href="business_services.html">Business Services</a>
+    <a href="tax_compliance.html">Tax & Compliance</a>
+    <a href="index.html#meeting-rooms">Meeting Rooms</a>
+    <a href="enterprise.html">Enterprise</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
 
 <!-- Cursor -->
 <div id="cur"></div><div id="cur-r"></div>
@@ -468,45 +657,6 @@ img[alt*="Private"], img[alt*="private cabin"]{background:#eef4ff}
   </div>
 
 </div>
-
-<!-- ════════════════ NAV ════════════════ -->
-<header class="jr-header">
-  <div class="jr-topbar">
-    <a href="/" class="jr-logo" aria-label="JobReady Coworking Home">JOBREADY<span>.</span></a>
-
-    <button class="jr-menu-toggle" type="button" aria-label="Toggle navigation" onclick="document.body.classList.toggle('jr-menu-open')">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <nav class="jr-nav" aria-label="Primary navigation">
-      <a href="/" class="active">Home</a>
-      <a href="/#solutions">Coworking</a>
-      <a href="jobready_virtual_office.html">Virtual Office</a>
-      <a href="company_registration.html">Company Registration</a>
-      <a href="business_services.html">Business Services</a>
-      <a href="/#meeting-rooms">Meeting Rooms</a>
-      <a href="enterprise.html">Enterprise</a>
-      <a href="/#contact">Contact</a>
-    </nav>
-
-    <div class="jr-actions">
-      <a class="jr-cta" href="https://wa.me/919172712982?text=Hi%2C%20I%20want%20to%20book%20a%20JobReady%20coworking%20tour" target="_blank" rel="noopener">Book Tour</a>
-    </div>
-  </div>
-
-  <div class="jr-mobile-nav" aria-label="Mobile navigation">
-    <a href="/">Home</a>
-    <a href="/#solutions">Coworking</a>
-    <a href="jobready_virtual_office.html">Virtual Office</a>
-    <a href="company_registration.html">Company Registration</a>
-    <a href="business_services.html">Business Services</a>
-    <a href="tax-compliance.html">Tax & Compliance</a>
-    <a href="/#meeting-rooms">Meeting Rooms</a>
-    <a href="enterprise.html">Enterprise</a>
-    <a href="/#contact">Contact</a>
-  </div>
-</header>
-
 <!-- ════════════════ HERO ════════════════ -->
 <section class="hero" id="home">
   <div class="hero-mesh"></div>
