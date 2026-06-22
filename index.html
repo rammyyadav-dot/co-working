@@ -1121,52 +1121,274 @@ img[alt*="Private"], img[alt*="private cabin"]{background:#eef4ff}
 
 <!-- ════════════════ FOOTER ════════════════ -->
 <div id="contact"></div>
-<footer class="bg-slate-900 text-slate-500 pt-14 pb-7 px-5 border-t border-white/5">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-10">
-    <div class="col-span-2">
-      <span class="hf text-white text-2xl font-black uppercase tracking-tighter mb-1 block">JOBREADY<span class="text-blue-600">.</span></span>
-      <p class="text-xs text-slate-400 mb-1 font-medium">JobReady Business Outsourcing Company</p>
-      <p class="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-4">Coworking Space Patna · Hot Desk · Virtual Office · Meeting Rooms</p>
-      <p class="text-sm leading-relaxed mb-5">Patna's premier coworking hub. Shared office from ₹4,999/month. Virtual office for GST. Meeting rooms by hour. <span class="text-slate-300 font-semibold">Ashiana More, Raja Bazar, Patna.</span></p>
-      <div class="flex gap-3">
-        <a href="#" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition text-xs"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition text-xs"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/919172712982" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition text-xs"><i class="fab fa-whatsapp"></i></a>
+
+<style>
+  /* ════════════════ JOBREADY STRUCTURED FOOTER - FINAL ════════════════ */
+  .jr-structured-footer{
+    background:
+      radial-gradient(circle at 14% 0%, rgba(37,99,235,.14), transparent 30%),
+      linear-gradient(180deg,#0f172a 0%,#060b18 100%);
+    color:#86A0C9;
+    padding:56px 20px 26px;
+    border-top:1px solid rgba(255,255,255,.06);
+    font-family:'Plus Jakarta Sans',sans-serif;
+  }
+  .jr-structured-footer *{box-sizing:border-box}
+  .jr-footer-wrap{max-width:1280px;margin:0 auto}
+  .jr-footer-grid{
+    display:grid;
+    grid-template-columns:1.25fr 1fr 1fr 1fr 1fr;
+    gap:34px;
+    align-items:start;
+  }
+  .jr-footer-card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:18px;
+    padding:22px;
+  }
+  .jr-footer-logo{
+    display:inline-block;
+    color:#FFFFFF;
+    font-family:'Outfit','Plus Jakarta Sans',sans-serif;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-.05em;
+    text-decoration:none;
+    margin-bottom:14px;
+  }
+  .jr-footer-logo span{color:#2563EB}
+  .jr-footer-title{
+    color:#BFDBFE;
+    font-size:14px;
+    font-weight:800;
+    line-height:1.55;
+    margin-bottom:14px;
+  }
+  .jr-footer-tag{
+    display:inline-flex;
+    color:#93C5FD;
+    background:rgba(37,99,235,.12);
+    border:1px solid rgba(37,99,235,.25);
+    border-radius:999px;
+    padding:8px 12px;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .jr-structured-footer h4{
+    color:#FFFFFF;
+    font-size:10px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.20em;
+    margin:0 0 18px;
+  }
+  .jr-structured-footer p,
+  .jr-structured-footer a,
+  .jr-structured-footer address{
+    color:#86A0C9;
+    font-size:14px;
+    line-height:1.72;
+  }
+  .jr-structured-footer a{
+    text-decoration:none;
+    transition:all .22s ease;
+  }
+  .jr-structured-footer a:hover{color:#FFFFFF}
+  .jr-structured-footer ul{list-style:none;margin:0;padding:0}
+  .jr-structured-footer li{margin-bottom:9px}
+  .jr-footer-label{
+    display:block;
+    color:#FFFFFF;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin:17px 0 6px;
+  }
+  .jr-footer-link{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+  }
+  .jr-footer-link::before{
+    content:"";
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#2563EB;
+    flex:0 0 5px;
+    margin-top:10px;
+  }
+  .jr-footer-contact{margin-top:16px}
+  .jr-footer-contact a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#2F7DFF;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:9px;
+    word-break:break-word;
+  }
+  .jr-footer-contact i{
+    width:14px;
+    text-align:center;
+  }
+  .jr-footer-bottom{
+    margin-top:34px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.07);
+    display:grid;
+    grid-template-columns:1.45fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .jr-footer-seo,
+  .jr-footer-copy p{
+    color:#64748B;
+    font-size:11px;
+    line-height:1.8;
+  }
+  .jr-footer-copy{text-align:right}
+  .jr-footer-legal-links{
+    margin-top:8px;
+    display:flex;
+    gap:14px;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+  }
+  .jr-footer-legal-links a{
+    color:#94A3B8;
+    font-size:11px;
+    font-weight:800;
+  }
+  @media(max-width:1180px){
+    .jr-footer-grid{grid-template-columns:repeat(3,1fr)}
+    .jr-footer-main{grid-column:span 3}
+  }
+  @media(max-width:820px){
+    .jr-footer-grid{grid-template-columns:repeat(2,1fr)}
+    .jr-footer-main{grid-column:span 2}
+    .jr-footer-bottom{grid-template-columns:1fr}
+    .jr-footer-copy{text-align:left}
+    .jr-footer-legal-links{justify-content:flex-start}
+  }
+  @media(max-width:560px){
+    .jr-structured-footer{padding:40px 18px 24px}
+    .jr-footer-grid{grid-template-columns:1fr;gap:28px}
+    .jr-footer-main{grid-column:span 1}
+    .jr-footer-card{padding:18px}
+  }
+</style>
+
+<footer class="jr-structured-footer" role="contentinfo">
+  <div class="jr-footer-wrap">
+    <div class="jr-footer-grid">
+
+      <div class="jr-footer-main">
+        <div class="jr-footer-card">
+          <a href="/" class="jr-footer-logo" aria-label="JobReady Home">JOBREADY<span>.</span></a>
+          <p class="jr-footer-title">JobReady Business Outsourcing Company</p>
+          <div class="jr-footer-tag">Coworking · Virtual Office · GST · Digital</div>
+
+          <p>
+            Patna's premium business support hub for coworking, virtual office, company registration, GST, tax compliance and digital growth services.
+          </p>
+
+          <span class="jr-footer-label">Registered Office</span>
+          <address style="font-style:normal">
+            Ashiana More, Raja Bazar,<br>
+            Indrapuri, Patna,<br>
+            Bihar 800014
+          </address>
+
+          <span class="jr-footer-label">Legal Identity</span>
+          <p>
+            CIN: U52291BR2025OPC076523<br>
+            GSTIN: 10AAGCJ9169A1ZU
+          </p>
+
+          <div class="jr-footer-contact">
+            <a href="tel:+919172712982"><i class="fas fa-phone"></i> +91 91727 12982</a>
+            <a href="mailto:Hello@jobreadybpo.com"><i class="fas fa-envelope"></i> Hello@jobreadybpo.com</a>
+            <a href="https://www.jobreadybpo.com" target="_blank" rel="noopener"><i class="fas fa-globe"></i> www.jobreadybpo.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a class="jr-footer-link" href="/">Home</a></li>
+          <li><a class="jr-footer-link" href="/#solutions">Coworking Space Patna</a></li>
+          <li><a class="jr-footer-link" href="jobready_virtual_office.html">Virtual Office Patna</a></li>
+          <li><a class="jr-footer-link" href="company_registration.html">Company Registration</a></li>
+          <li><a class="jr-footer-link" href="business_services.html">Business & Professional Services</a></li>
+          <li><a class="jr-footer-link" href="/#meeting-rooms">Meeting Rooms Patna</a></li>
+          <li><a class="jr-footer-link" href="/#enterprise">Enterprise Workspace</a></li>
+          <li><a class="jr-footer-link" href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>IT & Digital Marketing</h4>
+        <ul>
+          <li><a class="jr-footer-link" href="business_services.html#google-business">Google My Business</a></li>
+          <li><a class="jr-footer-link" href="business_services.html#digital-marketing">Digital Marketing</a></li>
+          <li><a class="jr-footer-link" href="business_services.html#website-development">Website & App Development</a></li>
+          <li><a class="jr-footer-link" href="business_services.html#seo">SEO & Local Search</a></li>
+          <li><a class="jr-footer-link" href="business_services.html#social-media">Social Media Marketing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>GST</h4>
+        <ul>
+          <li><a class="jr-footer-link" href="tax-compliance.html#gst-registration">GST Registration</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#gst-filing">GST Filing</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#gst-modification">GST Modification</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#gst-cancellation">GST Cancellation</a></li>
+          <li><a class="jr-footer-link" href="jobready_virtual_office.html#gst-address">Virtual Office for GST</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Accounting & Tax</h4>
+        <ul>
+          <li><a class="jr-footer-link" href="tax-compliance.html#pf-esic-registration">PF-ESIC Registration</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#pf-esic-return">PF-ESIC Return Filing</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#online-bookkeeping">Online Bookkeeping</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#income-tax">Income Tax Filing</a></li>
+          <li><a class="jr-footer-link" href="tax-compliance.html#payroll">Payroll Compliance</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="jr-footer-bottom">
+      <p class="jr-footer-seo">
+        Coworking Space Patna · Shared Office Ashiana More · Hot Desk Raja Bazar · Virtual Office Address Patna GST · Company Registration · GST Filing · GST Modification · GST Cancellation · PF-ESIC Registration · Online Bookkeeping · Website Development · Google My Business · Digital Marketing.
+      </p>
+
+      <div class="jr-footer-copy">
+        <p>
+          © 2026 JobReady Business Outsourcing Company. All rights reserved.
+          Legal, GST, tax and compliance services are delivered through internal teams and verified professional partners where applicable.
+        </p>
+        <div class="jr-footer-legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+        </div>
       </div>
     </div>
-    <div>
-      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-4">Registered Office</h4>
-      <address class="not-italic text-sm mb-3 leading-relaxed">Ashiana More, Raja Bazar,<br>Baaley Road, Patna,<br>Bihar 800014</address>
-      <div class="space-y-1 text-xs text-slate-500 mb-3">
-        <div><span class="text-slate-600 font-semibold">CIN:</span> U52291BR2025OPC076523</div>
-        <div><span class="text-slate-600 font-semibold">GSTIN:</span> 10AAGCJ9169A1ZU</div>
-      </div>
-      <a href="tel:+919172712982" class="flex items-center gap-1.5 text-blue-500 font-bold text-xs mb-1 hover:text-blue-400 transition"><i class="fas fa-phone text-[10px]"></i> +91 91727 12982</a>
-      <a href="mailto:Hello@jobreadybpo.com" class="flex items-center gap-1.5 text-blue-500 font-bold text-xs mb-1 hover:text-blue-400 transition"><i class="fas fa-envelope text-[10px]"></i> Hello@jobreadybpo.com</a>
-      <a href="https://www.jobreadybpo.com" target="_blank" class="flex items-center gap-1.5 text-blue-500 font-bold text-xs hover:text-blue-400 transition"><i class="fas fa-globe text-[10px]"></i> www.jobreadybpo.com</a>
-    </div>
-    <div>
-      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-4">Quick Links</h4>
-      <ul class="text-sm space-y-2">
-        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
-        <li><a href="index.html#solutions" class="hover:text-white transition">Coworking Space Patna</a></li>
-        <li><a href="jobready_virtual_office.html" class="hover:text-white transition">Virtual Office Patna</a></li>
-        <li><a href="company_registration.html" class="hover:text-white transition">Company Registration</a></li>
-        <li><a href="business_services.html" class="hover:text-white transition">Business & Professional Services</a></li>
-        <li><a href="index.html#meeting-rooms" class="hover:text-white transition">Meeting Rooms Patna</a></li>
-        <li><a href="index.html#enterprise" class="hover:text-white transition">Enterprise Workspace</a></li>
-        <li><a href="index.html#contact" class="hover:text-white transition">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="max-w-7xl mx-auto border-t border-white/5 pt-5">
-    <p class="text-center text-[10px] text-slate-600 leading-relaxed mb-2">
-      Coworking Space Patna · Shared Office Ashiana More · Hot Desk Rental Raja Bazar · Virtual Office Address Patna GST · Meeting Room Rental Patna ·
-      Conference Room Patna · Affordable Coworking Bihar · 24/7 Coworking Patna · BPO Workspace Patna · Startup Hub Indrapuri · Executive Cabin Patna
-    </p>
-    <p class="text-center text-xs text-slate-700">© 2026 JobReady Business Outsourcing Company · CIN: U52291BR2025OPC076523 · GSTIN: 10AAGCJ9169A1ZU · Ashiana More, Raja Bazar, Indrapuri, Patna, Bihar 800014</p>
   </div>
 </footer>
+
 
 <script>
 /* Custom cursor */
