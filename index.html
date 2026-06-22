@@ -165,21 +165,21 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
 </head>
 <body>
 
-<!-- HEADER WITH WORKING NAV -->
+<!-- HEADER NAVIGATION -->
 <header class="jr-final-header" role="banner">
   <div class="jr-final-nav">
     <a href="index.html" class="jr-final-logo" aria-label="JobReady Home">JOBREADY<span>.</span></a>
 
     <nav class="jr-final-menu" aria-label="Primary navigation">
       <a href="index.html" data-page="index">Home</a>
-      <a href="index.html#solutions" data-page="index" data-hash="solutions">Coworking</a>
+      <a href="#solutions" data-page="index" data-hash="solutions">Coworking</a>
       <a href="jobready_virtual_office.html" data-page="jobready_virtual_office">Virtual Office</a>
       <a href="company_registration.html" data-page="company_registration">Company Registration</a>
       <a href="business_services.html" data-page="business_services">Business Services</a>
       <a href="tax_compliance.html" data-page="tax_compliance">Tax & Compliance</a>
-      <a href="index.html#meeting-rooms" data-page="index" data-hash="meeting-rooms">Meeting Rooms</a>
+      <a href="#meeting-rooms" data-page="index" data-hash="meeting-rooms">Meeting Rooms</a>
       <a href="enterprise.html" data-page="enterprise">Enterprise</a>
-      <a href="index.html#contact" data-page="index" data-hash="contact">Contact</a>
+      <a href="#contact" data-page="index" data-hash="contact">Contact</a>
     </nav>
 
     <button class="jr-final-toggle" type="button" aria-label="Toggle navigation" onclick="document.body.classList.toggle('jr-nav-open')">
@@ -190,15 +190,15 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
   </div>
 
   <nav class="jr-final-mobile" aria-label="Mobile navigation">
-    <a href="index.html" data-page="index">Home</a>
-    <a href="index.html#solutions" data-page="index" data-hash="solutions">Coworking</a>
+    <a href="index.html" data-page="index" onclick="document.body.classList.remove('jr-nav-open')">Home</a>
+    <a href="#solutions" data-page="index" data-hash="solutions" onclick="document.body.classList.remove('jr-nav-open')">Coworking</a>
     <a href="jobready_virtual_office.html" data-page="jobready_virtual_office">Virtual Office</a>
     <a href="company_registration.html" data-page="company_registration">Company Registration</a>
     <a href="business_services.html" data-page="business_services">Business Services</a>
     <a href="tax_compliance.html" data-page="tax_compliance">Tax & Compliance</a>
-    <a href="index.html#meeting-rooms" data-page="index" data-hash="meeting-rooms">Meeting Rooms</a>
+    <a href="#meeting-rooms" data-page="index" data-hash="meeting-rooms" onclick="document.body.classList.remove('jr-nav-open')">Meeting Rooms</a>
     <a href="enterprise.html" data-page="enterprise">Enterprise</a>
-    <a href="index.html#contact" data-page="index" data-hash="contact">Contact</a>
+    <a href="#contact" data-page="index" data-hash="contact" onclick="document.body.classList.remove('jr-nav-open')">Contact</a>
   </nav>
 </header>
 
@@ -248,7 +248,6 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
 <footer class="jr-footer">
   <div class="jr-footer-container">
     
-    <!-- Footer Grid — 7 Columns -->
     <div class="jr-footer-grid">
       
       <!-- Column 1: Brand + Contact Info -->
@@ -295,9 +294,9 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#solutions">Coworking Space</a></li>
+          <li><a href="#solutions">Coworking Space</a></li>
           <li><a href="jobready_virtual_office.html">Virtual Office Patna</a></li>
-          <li><a href="index.html#meeting-rooms">Meeting Rooms</a></li>
+          <li><a href="#meeting-rooms">Meeting Rooms</a></li>
           <li><a href="company_registration.html">Company Registration</a></li>
           <li><a href="enterprise.html">Enterprise</a></li>
         </ul>
@@ -354,7 +353,7 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
           <li><a href="#">Dedicated Desk</a></li>
           <li><a href="#">Private Cabin</a></li>
           <li><a href="#">Executive Suite</a></li>
-          <li><a href="#">Managed Office</a></li>
+          <li><a href="enterprise.html">Managed Office</a></li>
           <li><a href="#">Workshop Halls</a></li>
         </ul>
       </div>
@@ -401,14 +400,14 @@ section{padding:88px 0}.sec-label{font-size:10px;font-weight:900;text-transform:
 
     <!-- Bottom Copyright -->
     <div class="jr-footer-bottom-text">
-      © 2025 JobReady Business Outsourcing Company. All rights reserved. | Patna's Premier Coworking Space & Virtual Office Solution | Built for Founders, Startups & Remote Teams
+      © 2026 JobReady Business Outsourcing Company. All rights reserved. | Patna's Premier Coworking Space & Virtual Office Solution | Built for Founders, Startups & Remote Teams
     </div>
 
   </div>
 </footer>
 
 <script>
-// Smart Navigation Active State Detection
+// Smart Navigation Active State Engine
 function setActiveNav() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   const currentHash = window.location.hash.replace('#', '') || '';
@@ -420,35 +419,39 @@ function setActiveNav() {
     const dataHash = link.getAttribute('data-hash') || '';
     const href = link.getAttribute('href');
     
-    // Remove active class
     link.classList.remove('active');
+    link.removeAttribute('aria-current');
     
-    // Check for page match
+    // Page evaluation strategy
     if (currentPage === 'index.html' || currentPage === '') {
-      // On index page
       if (dataPage === 'index') {
-        if (dataHash === '' || dataHash === currentHash) {
+        if (dataHash === currentHash) {
           link.classList.add('active');
+          if(dataHash === '') {
+            link.setAttribute('aria-current', 'page');
+          }
         }
       }
     } else {
-      // On other pages
       if (dataPage && currentPage.includes(dataPage)) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       }
     }
   });
 }
 
-// Set active nav on load and hash change
-document.addEventListener('DOMContentLoaded', setActiveNav);
+// Global programmatic cross-page anchor layout routing
+window.addEventListener('DOMContentLoaded', () => {
+  // Catch external incoming hash fragments pointing to enterprise
+  if (window.location.hash === '#enterprise') {
+    window.location.replace('enterprise.html');
+  }
+  setActiveNav();
+});
+
 window.addEventListener('hashchange', setActiveNav);
 window.addEventListener('load', setActiveNav);
-
-// Mobile nav toggle
-function toggleMobileNav() {
-  document.body.classList.toggle('jr-nav-open');
-}
 </script>
 
 </body>
