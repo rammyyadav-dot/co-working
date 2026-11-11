@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://jobreadybpo.com/sitemap.xml
+Sitemap: https://coworking.jobreadybpo.com/sitemap.xml
