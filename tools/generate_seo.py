@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 from urllib.parse import quote
 from xml.etree.ElementTree import Element, SubElement, tostring, indent
+from site_components import header
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://coworking.jobreadybpo.com'
@@ -162,8 +163,9 @@ def head(title, desc, path, schema, hub=False):
 <meta property="og:image" content="{image}"><meta property="og:image:secure_url" content="{image}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{esc(image_alt)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(title)}"><meta name="twitter:description" content="{esc(desc)}"><meta name="twitter:image" content="{image}"><meta name="twitter:image:alt" content="{esc(image_alt)}">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92)+'u003c')}</script>
+<link rel="stylesheet" href="/assets/site.css"><script src="/assets/site.js" defer></script>
 {'<script src="/seo/assets/directory.js" defer></script>' if hub else ''}</head><body>
-<a class="skip" href="#main">Skip to content</a><header><div class="wrap nav"><a class="brand" href="/">JOBREADY<span> / workspace</span></a><nav aria-label="Main navigation"><a class="optional" href="/jobreadyvirtualoffice.html">Virtual office</a><a href="/seo/">Guides</a><a class="button" href="tel:+919172712982">Talk to us ↗</a></nav></div></header>'''
+{header('/seo/') }'''
 
 def footer():
     return '''<footer><div class="wrap"><div><a class="brand" href="/">JOBREADY<span> / workspace</span></a><p>Workspace decisions, made clearer. Coworking, business addresses and team workspace enquiries in Patna.</p><p>Stated location: Ashiana More, Raja Bazar, Indrapuri, Patna, Bihar 800014. Confirm the map pin before visiting.</p></div><div class="contact-line"><a href="tel:+919172712982">+91 9172712982</a><br><a href="mailto:hello@jobreadybpo.com">hello@jobreadybpo.com</a><br><a href="/seo/">All 100 workspace guides</a><br><a href="/business_services.html">Business services</a></div></div></footer></body></html>'''
@@ -233,7 +235,7 @@ def build_page(t):
 <article class="article"><section id="decision"><span class="eyebrow">01 / THE DECISION</span><h2>A clearer brief makes a better choice.</h2>{para(angle)}{para(action)}<h3>{esc(t['question'])}</h3>{para(t['answer'])}{special}</section>
 <section id="options"><span class="eyebrow">02 / YOUR OPTIONS</span><h2>{esc(family_title)}</h2>{para(p1)}{para(p2)}</section>
 <section id="checklist"><span class="eyebrow">03 / YOUR SHORTLIST</span><h2>What to confirm before you commit</h2><p>Use this checklist in a tour, email or provider conversation. Ask for specific answers that relate to your dates and proposed plan. Where a requirement is essential, have it recorded in the quotation or agreement.</p><ol class="numbered">{steps_html}</ol></section>
-<section id="compare"><span class="eyebrow">04 / COMPARE THE FIT</span><h2>Choose the arrangement that solves your need.</h2><p>Compare like for like. These are decision categories, not live packages or confirmed inventory. Ask each provider to explain what is included and what will be quoted separately.</p><div class="table-scroll"><table><caption class="micro">A practical comparison framework for {esc(keyword.lower())}</caption><thead><tr><th scope="col">Option</th><th scope="col">What to evaluate</th><th scope="col">Ask for clarity on</th></tr></thead><tbody>{table}</tbody></table></div></section>
+<section id="compare"><span class="eyebrow">04 / COMPARE THE FIT</span><h2>Choose the arrangement that solves your need.</h2><p>Compare like for like. These are decision categories, not live packages or confirmed inventory. Ask each provider to explain what is included and what will be quoted separately.</p><div class="table-scroll" role="region" aria-label="Workspace options comparison" tabindex="0"><table><caption class="micro">A practical comparison framework for {esc(keyword.lower())}</caption><thead><tr><th scope="col">Option</th><th scope="col">What to evaluate</th><th scope="col">Ask for clarity on</th></tr></thead><tbody>{table}</tbody></table></div></section>
 <section id="questions"><span class="eyebrow">05 / GOOD QUESTIONS</span><h2>Before you make your next move.</h2>{faq_html}</section>
 <section class="enquire" id="enquire"><span class="eyebrow" style="color:#d5edaa">LET’S FIND THE RIGHT FIT</span><h2>Tell us what a good workday looks like.</h2><p>Ask JobReady about {esc(keyword.lower())}. Share your dates, headcount, hours and must-have requirements. We’ll start with an enquiry; availability and booking terms need written confirmation.</p><div class="actions"><a class="button" href="https://wa.me/919172712982?text={message}">Enquire on WhatsApp ↗</a><a class="button light" href="mailto:hello@jobreadybpo.com?subject={quote(keyword+' enquiry')}">Email your brief</a></div><p class="micro">Prefer a conversation? <a href="tel:+919172712982">Call +91 9172712982</a>. No payment is collected on this page.</p></section>
 </article></div></div><section class="related"><div class="wrap"><div class="related-head"><div><span class="eyebrow">KEEP EXPLORING</span><h2>A few useful next reads.</h2></div><a href="/seo/">Browse all 100 guides ↗</a></div><div class="cards">{''.join(card(x) for x in related(t))}</div></div></section></main>''' + footer()

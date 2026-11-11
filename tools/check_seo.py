@@ -117,8 +117,33 @@ def main():
         assert target.exists(), url
     assert BASE+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
     assert 'href="seo/"' in (ROOT/'index.html').read_text()
+    primary_titles, primary_descriptions = set(), set()
+    for filename in ['index.html','jobreadyvirtualoffice.html','company_registration.html','business_services.html','tax_compliance.html','enterprise.html']:
+        path = ROOT/filename
+        page = Page(path.read_text())
+        assert len(page.h1) == 1 and len(page.title) <= 65, filename
+        description = page.meta['description']
+        assert 120 <= len(description) <= 165 and description.endswith('.'), filename
+        assert page.title not in primary_titles and description not in primary_descriptions, filename
+        primary_titles.add(page.title); primary_descriptions.add(description)
+        assert page.canonical == BASE+('/' if filename=='index.html' else '/'+filename), filename
+        assert page.meta['og:url'] == page.canonical and page.canonical in urls
+        assert page.meta['og:title'] == page.meta['twitter:title'] == page.title
+        assert page.meta['og:description'] == page.meta['twitter:description'] == description
+        image=ROOT/urlsplit(page.meta['og:image']).path.lstrip('/')
+        assert image.is_file() and struct.unpack('>II',image.read_bytes()[16:24])==(1200,630)
+        for link in page.links:
+            u=urlsplit(link)
+            if u.scheme or u.netloc: continue
+            target=ROOT/u.path.lstrip('/') if u.path.startswith('/') else path.parent/u.path
+            if not u.path: target=path
+            if target.is_dir(): target=target/'index.html'
+            assert target.is_file(), (filename,link)
+            if u.fragment:
+                assert unquote(u.fragment) in Page(target.read_text()).ids, (filename,link)
     print('PASS: 100 keyword pages + directory; unique titles/descriptions/canonicals; 500 matching FAQ records; all internal assets, links and fragments; 107 sitemap URLs.')
     print('PASS: complete Open Graph and Twitter cards on 101 pages; matching titles/descriptions; 1200×630 PNG assets; complete description sentences; topic titles at most 65 characters.')
+    print('PASS: six primary pages with concise unique metadata, canonical host alignment, social cards, one H1 and working internal destinations.')
     print(f'Topic page visible word range: {min(words[:-1])}–{max(words[1:])} (including navigation and related content).')
 
 if __name__ == '__main__': main()
