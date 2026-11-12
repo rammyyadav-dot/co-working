@@ -157,7 +157,7 @@ def head(title, desc, path, schema, hub=False):
     image_alt = title.removesuffix(' | JobReady') + ' — JobReady workspace guide'
     return f'''<!doctype html>
 <html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="index, follow">
+<title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="{BASE}{path}"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/seo/assets/guides.css">
 <meta property="og:type" content="{'website' if hub else 'article'}"><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="JobReady Workspace Guides"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{BASE}{path}">
 <meta property="og:image" content="{image}"><meta property="og:image:secure_url" content="{image}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{esc(image_alt)}">
@@ -177,8 +177,9 @@ def visual(t):
 <div class="visual-bottom"><span>{esc(label)}</span><span>PATNA, INDIA</span></div><span class="visual-tag">Illustration · explore your options</span></div>'''
 
 def card(t, directory=False):
+    title, description = metadata(t)
     data = f' data-guide data-category="{t["category"]}"' if directory else ''
-    return f'<a class="card" href="/seo/{t["slug"]}.html"{data}><span class="eyebrow">{esc(CATEGORIES[t["category"]])} / {t["id"]:03d}</span><h3>{esc(t["keyword"])}</h3><p>{esc(t["angle"])}</p><span class="arrow">Read the guide ↗</span></a>'
+    return f'<a class="card" href="/seo/{t["slug"]}.html"{data}><span class="eyebrow">{esc(CATEGORIES[t["category"]])} / {t["id"]:03d}</span><h3>{esc(title if directory else t["keyword"])}</h3><p>{esc(description if directory else t["angle"])}</p><span class="arrow">Read the guide ↗</span></a>'
 
 def related(t):
     same = [x for x in topics if x['family'] == t['family'] and x != t]

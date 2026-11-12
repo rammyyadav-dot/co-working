@@ -35,6 +35,7 @@ def main():
         head,body=text.split('</head>',1)
         head=re.sub(r'<title>.*?</title>',f'<title>{escape(title)}</title>',head,flags=re.S)
         head=re.sub(r'<meta\b[^>]*(?:name="(?:title|description|twitter:[^"]+)"|property="og:[^"]+")[^>]*>\s*','',head)
+        head=re.sub(r'<meta\b[^>]*name="robots"[^>]*>\s*', '', head)
         head=re.sub(r'<link\b[^>]*rel="canonical"[^>]*>\s*','',head)
         # Canonical and structured navigation should refer to the same host.
         head=head.replace('https://jobreadybpo.com/',BASE+'/')
@@ -42,7 +43,7 @@ def main():
         path='/' if filename=='index.html' else '/'+filename
         canonical=BASE+path
         image=f'{BASE}/seo/assets/social/{card}.png'
-        meta={'description':desc,'twitter:card':'summary_large_image','twitter:title':title,'twitter:description':desc,'twitter:image':image,'twitter:image:alt':label+' — JobReady'}
+        meta={'robots':'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1','description':desc,'twitter:card':'summary_large_image','twitter:title':title,'twitter:description':desc,'twitter:image':image,'twitter:image:alt':label+' — JobReady'}
         og={'type':'website','locale':'en_IN','site_name':'JobReady','title':title,'description':desc,'url':canonical,'image':image,'image:secure_url':image,'image:type':'image/png','image:width':'1200','image:height':'630','image:alt':label+' — JobReady'}
         addition='\n<link rel="canonical" href="'+canonical+'">\n'
         addition+=''.join(f'<meta name="{key}" content="{escape(value,quote=True)}">\n' for key,value in meta.items())

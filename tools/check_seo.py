@@ -83,7 +83,7 @@ def main():
         image = ROOT/urlsplit(image_url).path.lstrip('/')
         data = image.read_bytes()
         assert data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',data[16:24]) == (1200,630), image
-        assert p.meta['robots'] == 'index, follow', path
+        assert p.meta['robots'] == 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', path
         assert p.schemas, path
         titles.add(p.title); descriptions.add(desc); canonicals.add(p.canonical)
         words.append(len(re.findall(r'\b\w+\b',' '.join(p.text))))
@@ -106,6 +106,8 @@ def main():
         graph = p.schemas[0]['@graph']
         faq = next(x for x in graph if x['@type']=='FAQPage')
         assert [x['name'] for x in faq['mainEntity']] == p.faq
+        assert p.title in pages[ROOT/'seo/index.html'].text, t['slug']
+        assert p.meta['description'] in pages[ROOT/'seo/index.html'].text, t['slug']
         assert t['question'] in p.faq and len(p.faq) == 5
     sitemap = ElementTree.parse(ROOT/'sitemap.xml')
     urls = [x.text for x in sitemap.findall('.//{*}loc')]
@@ -122,6 +124,7 @@ def main():
         path = ROOT/filename
         page = Page(path.read_text())
         assert len(page.h1) == 1 and len(page.title) <= 65, filename
+        assert page.meta['robots'] == 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', filename
         description = page.meta['description']
         assert 120 <= len(description) <= 165 and description.endswith('.'), filename
         assert page.title not in primary_titles and description not in primary_descriptions, filename

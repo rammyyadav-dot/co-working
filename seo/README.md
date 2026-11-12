@@ -50,3 +50,24 @@ Some supplied phrases overlap substantially, particularly broad coworking terms 
 The static checker verifies 100-keyword coverage, unique titles/descriptions/canonical URLs, valid JSON-LD, matching visible FAQ questions, existing internal assets and fragments, sitemap coverage and the directory link from the home page.
 
 The browser checker visits all 100 topic pages at desktop and mobile widths, checks HTTP responses, headings, FAQ disclosure interaction, enquiry links and horizontal overflow. It also exercises all five directory filters, search and empty state, and fails on JavaScript errors, failed requests or unexpected external requests. Screenshots are written to `/tmp/seo-*.png` for local inspection.
+
+## Search-result titles and descriptions
+
+The directory shows every guide's title tag and meta description as its linked
+heading and short summary. These values come from the same metadata function as
+the page head, so regeneration keeps them aligned. All 107 public pages permit
+indexing and full text snippets with large image previews. Google still selects
+its displayed title and snippet for each query; these tags do not guarantee
+indexing, ranking, or an exact preview. Google does not use meta keywords for
+web ranking, so additional keyword lists are unnecessary.
+
+Live check on 12 November 2026: `https://coworking.jobreadybpo.com/seo/` returned
+HTTP 404 with the hosting provider's “This Page Does Not Exist” page. Repository
+validation does not establish production availability. Deploy the full site,
+including `seo/`, `assets/`, `sitemap.xml` and `robots.txt`, to the document root
+for the canonical host. Confirm the directory and individual guides return 200
+with the expected HTML, and nonexistent URLs return 404. Then submit
+`https://coworking.jobreadybpo.com/sitemap.xml` in the verified Google Search
+Console property, inspect representative service and guide URLs, and request
+indexing where appropriate. Review Page Indexing for crawl or canonical issues.
+Search Console submission and hosting deployment have not been performed here.
