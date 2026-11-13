@@ -19,11 +19,13 @@ class Page(HTMLParser):
         self.active = None
         self.script = None
         self.faq_active = False
+        self.in_header = False
         self.canonical = None
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'header': self.in_header = True
         if 'id' in a:
             assert a['id'] not in self.ids, f'Duplicate ID {a["id"]}'
             self.ids.add(a['id'])
@@ -35,9 +37,9 @@ class Page(HTMLParser):
                 assert key not in self.meta, f'Duplicate metadata: {key}'
                 self.meta[key] = a.get('content')
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical = a['href']
-        if tag in ('title','h1','summary'): self.active = tag
+        if tag in ('title','h1') or (tag == 'summary' and not self.in_header): self.active = tag
         if tag == 'h1': self.h1.append('')
-        if tag == 'summary': self.faq.append('')
+        if tag == 'summary' and not self.in_header: self.faq.append('')
         if tag == 'script': self.script = '' if a.get('type') == 'application/ld+json' else False
 
     def handle_data(self, data):
@@ -50,6 +52,7 @@ class Page(HTMLParser):
         if self.active == 'summary': self.faq[-1] += data
 
     def handle_endtag(self, tag):
+        if tag == 'header': self.in_header = False
         if tag == self.active: self.active = None
         if tag == 'script':
             if self.script is not None and self.script is not False: self.schemas.append(json.loads(self.script))
@@ -111,7 +114,8 @@ def main():
         assert t['question'] in p.faq and len(p.faq) == 5
     sitemap = ElementTree.parse(ROOT/'sitemap.xml')
     urls = [x.text for x in sitemap.findall('.//{*}loc')]
-    assert len(urls) == len(set(urls)) == 107
+    collection = json.loads((ROOT/'coworking/manifest.json').read_text()) if (ROOT/'coworking/manifest.json').exists() else []
+    assert len(urls) == len(set(urls)) == 107 + (len(collection) + 1 if collection else 0)
     assert canonicals <= set(urls)
     for url in urls:
         assert url.startswith(BASE+'/')
@@ -144,7 +148,7 @@ def main():
             assert target.is_file(), (filename,link)
             if u.fragment:
                 assert unquote(u.fragment) in Page(target.read_text()).ids, (filename,link)
-    print('PASS: 100 keyword pages + directory; unique titles/descriptions/canonicals; 500 matching FAQ records; all internal assets, links and fragments; 107 sitemap URLs.')
+    print(f'PASS: 100 keyword guides + directory; unique metadata; 500 matching FAQ records; all internal assets, links and fragments; {len(urls)} sitemap URLs.')
     print('PASS: complete Open Graph and Twitter cards on 101 pages; matching titles/descriptions; 1200×630 PNG assets; complete description sentences; topic titles at most 65 characters.')
     print('PASS: six primary pages with concise unique metadata, canonical host alignment, social cards, one H1 and working internal destinations.')
     print(f'Topic page visible word range: {min(words[:-1])}–{max(words[1:])} (including navigation and related content).')

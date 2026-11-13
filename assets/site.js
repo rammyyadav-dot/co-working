@@ -8,9 +8,20 @@
   const header = document.querySelector('.site-header');
   const toggle = header?.querySelector('.site-menu-toggle');
   const nav = header?.querySelector('.site-navigation');
+  const coworkingMenu = header?.querySelector('.site-coworking');
+  document.addEventListener('click', e => {
+    if (coworkingMenu && !coworkingMenu.contains(e.target)) coworkingMenu.open = false;
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && coworkingMenu?.open) {
+      coworkingMenu.open = false;
+      coworkingMenu.querySelector('summary').focus();
+    }
+  });
   if (toggle && nav) {
     const close = (restoreFocus = false) => {
       header.dataset.open = 'false';
+      if (coworkingMenu) coworkingMenu.open = false;
       toggle.setAttribute('aria-expanded', 'false');
       toggle.querySelector('span').textContent = 'Menu';
       if (restoreFocus) toggle.focus();

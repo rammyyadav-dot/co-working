@@ -3,7 +3,7 @@ from html import escape
 
 LINKS = [
     ('/index.html', 'Home'),
-    ('/index.html#solutions', 'Coworking'),
+    ('/coworking/', 'Coworking'),
     ('/jobreadyvirtualoffice.html', 'Virtual office'),
     ('/company_registration.html', 'Company registration'),
     ('/business_services.html', 'Business services'),
@@ -14,7 +14,9 @@ LINKS = [
 ]
 
 def header(current=''):
-    links = ''.join(f'<a href="{url}"'+(' aria-current="page"' if current == url else '')+f'>{label}</a>' for url,label in LINKS)
+    categories = [('offices','Offices & coworking'),('desks','Desks & day passes'),('virtual-office','Virtual office'),('meeting-rooms','Meeting rooms'),('budget','Budget options'),('locations','Local commutes'),('teams','Private & team space')]
+    coworking = '<details class="site-coworking"><summary'+(' aria-current="true"' if current.startswith('/coworking') else '')+'>Coworking <span aria-hidden="true">⌄</span></summary><div class="site-coworking-menu"><a href="/coworking/">Explore all workspaces <span aria-hidden="true">↗</span></a>'+''.join(f'<a href="/coworking/#{key}">{label}</a>' for key,label in categories)+'</div></details>'
+    links = ''.join(coworking if url == '/coworking/' else f'<a href="{url}"'+(' aria-current="page"' if current == url else '')+f'>{label}</a>' for url,label in LINKS)
     return f'''<a class="site-skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="site-header-inner">
 <a class="site-brand" href="/index.html" aria-label="JobReady home">JOBREADY<span>.</span></a>
