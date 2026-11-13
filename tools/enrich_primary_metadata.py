@@ -4,32 +4,19 @@ import re
 from pathlib import Path
 from html import escape
 from generate_seo import BASE, build_social_image
+from seo_metadata import for_page
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = {
- 'index.html': ('Coworking Space in Patna | Desks & Virtual Office | JobReady',
-  'Explore coworking desks, private offices, virtual addresses and meeting room options in Patna. Contact JobReady in Raja Bazar for availability and a quote.',
-  'Coworking Space in Patna', 'homepage'),
- 'jobreadyvirtualoffice.html': ('Virtual Office in Patna | Business Address | JobReady',
-  'Explore virtual office options in Patna with JobReady. Discuss business address use, GST documents, mail handling and meeting access before choosing a plan.',
-  'Virtual Office in Patna', 'virtual-office'),
- 'company_registration.html': ('Company Registration in Patna | Startup Support | JobReady',
-  'Discuss company registration in Patna with JobReady. Get guidance on incorporation documents, business address needs and filing support. Request a quote.',
-  'Company Registration in Patna', 'company-registration'),
- 'business_services.html': ('Business Services in Patna | Startup Support | JobReady',
-  'Explore business services in Patna: mail handling, compliance, bookkeeping, payroll, marketing and IT support. Discuss your requirements with JobReady.',
-  'Business Services in Patna', 'business-services'),
- 'tax_compliance.html': ('GST & Tax Compliance in Patna | JobReady',
-  'Discuss GST registration, return filing, bookkeeping, payroll and tax compliance support in Patna. Share your business requirements and request a quote.',
-  'GST & Tax Compliance in Patna', 'tax-compliance'),
- 'enterprise.html': ('Managed Office Space in Patna | Enterprise | JobReady',
-  'Explore managed office options in Patna for growing teams. Discuss seats, equipment, access hours and service scope with JobReady. Request a proposal.',
-  'Managed Office Space in Patna', 'enterprise'),
-}
+PAGES = {'index.html': ('Coworking Space in Patna', 'homepage'),
+ 'jobreadyvirtualoffice.html': ('Virtual Office in Patna', 'virtual-office'),
+ 'company_registration.html': ('Company Registration in Patna', 'company-registration'),
+ 'business_services.html': ('Business Services in Patna', 'business-services'),
+ 'tax_compliance.html': ('GST & Tax Compliance in Patna', 'tax-compliance'),
+ 'enterprise.html': ('Managed Office Space in Patna', 'enterprise')}
 
 def main():
-    for filename,(title,desc,label,card) in PAGES.items():
-        assert len(title) <= 65 and 120 <= len(desc) <= 165
+    for filename,(label,card) in PAGES.items():
+        title,desc=for_page(filename)
         file = ROOT/filename
         text=file.read_text()
         head,body=text.split('</head>',1)

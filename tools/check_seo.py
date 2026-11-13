@@ -7,6 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree
+from seo_metadata import for_page
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://coworking.jobreadybpo.com'
@@ -66,9 +67,9 @@ def main():
     titles, descriptions, canonicals, words = set(), set(), set(), []
     for path, p in pages.items():
         assert len(p.h1) == 1, path
-        assert p.title and p.title not in titles, path
+        assert p.title and len(p.title)<=60 and p.title not in titles, path
         desc = p.meta.get('description','')
-        assert 70 <= len(desc) <= 165 and desc not in descriptions, (path,len(desc))
+        assert 70 <= len(desc) <= 155 and desc not in descriptions, (path,len(desc))
         assert p.canonical and p.canonical not in canonicals, path
         assert p.meta['og:url'] == p.canonical, path
         assert p.meta['og:title'] == p.meta['twitter:title'] == p.title, path
@@ -103,7 +104,7 @@ def main():
     for t in topics:
         p = pages[ROOT/'seo'/f'{t["slug"]}.html']
         assert p.h1 == [t['keyword']]
-        assert p.title.startswith(t['keyword']) and len(p.title) <= 65
+        assert (p.title,p.meta['description'])==for_page('/seo/'+t['slug']+'.html')
         assert '…' not in p.meta['description'] and p.meta['description'].endswith('.'), p.meta['description']
         assert p.canonical == BASE+'/seo/'+t['slug']+'.html'
         graph = p.schemas[0]['@graph']
@@ -127,10 +128,10 @@ def main():
     for filename in ['index.html','jobreadyvirtualoffice.html','company_registration.html','business_services.html','tax_compliance.html','enterprise.html']:
         path = ROOT/filename
         page = Page(path.read_text())
-        assert len(page.h1) == 1 and len(page.title) <= 65, filename
+        assert len(page.h1) == 1 and len(page.title) <= 60, filename
         assert page.meta['robots'] == 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', filename
         description = page.meta['description']
-        assert 120 <= len(description) <= 165 and description.endswith('.'), filename
+        assert 120 <= len(description) <= 155 and description.endswith('.'), filename
         assert page.title not in primary_titles and description not in primary_descriptions, filename
         primary_titles.add(page.title); primary_descriptions.add(description)
         assert page.canonical == BASE+('/' if filename=='index.html' else '/'+filename), filename
@@ -149,7 +150,7 @@ def main():
             if u.fragment:
                 assert unquote(u.fragment) in Page(target.read_text()).ids, (filename,link)
     print(f'PASS: 100 keyword guides + directory; unique metadata; 500 matching FAQ records; all internal assets, links and fragments; {len(urls)} sitemap URLs.')
-    print('PASS: complete Open Graph and Twitter cards on 101 pages; matching titles/descriptions; 1200×630 PNG assets; complete description sentences; topic titles at most 65 characters.')
+    print('PASS: complete Open Graph and Twitter cards on 101 pages; matching titles/descriptions; 1200×630 PNG assets; complete sentences; titles ≤60 and descriptions ≤155 characters.')
     print('PASS: six primary pages with concise unique metadata, canonical host alignment, social cards, one H1 and working internal destinations.')
     print(f'Topic page visible word range: {min(words[:-1])}–{max(words[1:])} (including navigation and related content).')
 

@@ -51,6 +51,16 @@ Edit the guide generator and shared component source before running `python3 too
 
 Run `python3 tools/enrich_primary_metadata.py` to refresh the six main pages' title tags, descriptions, canonical links, Open Graph/Twitter metadata and local social cards. Those main-page titles and descriptions were shortened during the mobile/SEO review, outdated canonical hosts were aligned, and broken footer anchors were replaced with real destinations. `tools/check_seo.py` checks these pages alongside the guides. The external Seobility report and production site could not be fetched under this environment's network policy, so a new live audit score has not been measured. Backlinks and host-level cache/compression settings are outside the static source validation.
 
-## Contact
+## SEO titles and descriptions
+
+All 209 HTML pages use reviewed metadata in `content/seo-metadata.json`. Titles are limited to 60 characters and descriptions to 155 characters, counting decoded text rather than HTML entities. These are editorial maximums, not guarantees of Google's displayed snippet width or wording.
+
+The copy distinguishes service enquiries from informational guides, adds JobReady branding, and describes locality pages as commute comparisons where appropriate. Search snippets, Open Graph and Twitter text match. Existing article and collection descriptions are synchronised; the 404 page retains `noindex`.
+
+Edit the shared JSON, run `python3 tools/generate_coworking.py` to refresh the landing-page manifest, then `python3 tools/enrich_site_metadata.py` to update the complete site and guide-directory previews without rebuilding image assets. Run `python3 tools/check_metadata.py`, `python3 tools/check_coworking.py` and `python3 tools/check_seo.py` to validate the output. The current character-count audit is `seo/metadata-audit.csv`.
+
+All three page-maintenance scripts read the shared metadata source, so regenerating a page preserves the approved copy. Review a new page's metadata entry before adding it to a generator.
+
+## Contact details
 Phone: +91 9172712982
 Email: hello@jobreadybpo.com

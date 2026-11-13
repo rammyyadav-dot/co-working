@@ -5,6 +5,7 @@ from html import escape
 import json, re, csv
 from xml.etree import ElementTree as ET
 from site_components import header
+from seo_metadata import for_page
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE='https://coworking.jobreadybpo.com'
@@ -65,6 +66,7 @@ def visual(d=None):
     return f'<div class="cw-art"><div class="cw-art-head"><span>A little room for your next idea</span><span><i></i> Patna, Bihar</span></div>{office_art(kind)}<span class="cw-visual-note">Workspace illustration</span><div class="cw-art-foot"><div><strong>{esc(price)}</strong><small>{esc(note)}</small></div><a href="#enquire" aria-label="Discuss your workspace">↗</a></div></div>'
 
 def head(title,desc,path,schemas=()):
+    title,desc=for_page(path)
     canonical=BASE+path
     return f'''<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="theme-color" content="#15263b"><link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canonical}"><meta property="og:locale" content="en_IN"><meta property="og:site_name" content="JobReady"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{esc(title)}"><meta name="twitter:description" content="{esc(desc)}"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/site.css"><link rel="stylesheet" href="/assets/coworking.css"><script defer src="/assets/site.js"></script><script defer src="/assets/coworking.js"></script>'''+''.join('<script type="application/ld+json">'+json.dumps(s,ensure_ascii=False).replace('<','\\u003c')+'</script>' for s in schemas)+'</head><body class="cw-page">'+header(path)
 
@@ -84,11 +86,7 @@ for d in DATA:
     i=int(d['number']);row=d['copy'];_,hub,audience,benefit,hero,b1,b2,b3,gst,parking,wifi,terms,cta,closing=row
     if i==68:
         hero='Working within ₹500 for the day? Ask for the current desk rate at Raja Bazar and check the final payable amount against the hours you need.'
-    cat,label,catdesc=category(i);path=d['proposed_path'];title=d['title'];keyword=term(d['primary_keyword']);price,_=rate(d)
-    desc=d['meta_description']
-    if 'proposed' in desc:desc=f'{cta} in Patna. Discuss {d["primary_keyword"]} options, availability, inclusions and a current quote.'
-    if len(desc)>155:desc=f'{cta}. Explore {d["primary_keyword"]}; confirm availability, scope and current pricing.'
-    assert len(desc)<=155,(i,len(desc))
+    cat,label,catdesc=category(i);path=d['proposed_path'];title,desc=for_page(path);keyword=term(d['primary_keyword']);price,_=rate(d)
     # Keep questions human-readable while preserving the authored, page-specific answers.
     questions=['Can this arrangement support my GST address needs?','What should I know about parking?','How can I check Wi-Fi speed and internet access?','What if my plans or team size change?']
     answers=[gst,parking,wifi,terms]

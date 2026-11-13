@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import quote
 from xml.etree.ElementTree import Element, SubElement, tostring, indent
 from site_components import header
+from seo_metadata import for_page
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://coworking.jobreadybpo.com'
@@ -82,32 +83,8 @@ def esc(s): return html.escape(str(s), quote=True)
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 def para(s): return f'<p>{esc(s)}</p>'
 
-SNIPPETS = {
- 'desk': 'Compare desk types, access hours and costs. Use the JobReady checklist before enquiring.',
- 'virtual': 'Check address uses, documents, mail handling and renewal terms with JobReady.',
- 'compliance': 'Review address documents, permissions and adviser checks before your JobReady enquiry.',
- 'local': 'Compare the commute to Raja Bazar, access hours and availability with JobReady.',
- 'booking': 'Check dates, seat availability, inclusions and booking terms. Enquire with JobReady.',
- 'meeting': 'Plan capacity, equipment, guest access and rental terms. Send JobReady your meeting brief.',
- 'private': 'Compare privacy, usable capacity, access and contract terms with the JobReady checklist.',
- 'managed': 'Review furniture, service scope, handover and costs. Discuss your brief with JobReady.',
- 'budget': 'Compare total costs, inclusions, deposits and exit terms before enquiring with JobReady.',
- 'comparison': 'Independent guide to comparing locations, services and current quotes. No brand affiliation.',
- 'audience': 'Match desks, hours, connectivity and costs to your workday with the JobReady guide.',
- 'team': 'Plan seats, team access, equipment and billing. Discuss workspace needs with JobReady.',
- 'access': 'Check shift hours, entry, facilities and support. Confirm availability with JobReady.',
- 'mail': 'Review receipt, notification, collection and forwarding terms before enquiring with JobReady.',
- 'amenity': 'Check actual facilities, usage limits and fees before choosing a plan with JobReady.',
-}
-
 def metadata(t):
-    title = t['keyword'] + ' | JobReady'
-    # Prefer the specific editorial action when it fits without cutting a sentence.
-    desc = t['keyword'] + ': ' + t['action']
-    if len(desc) > 165:
-        desc = t['keyword'] + '. ' + SNIPPETS[t['family']]
-    assert len(title) <= 65 and 70 <= len(desc) <= 165, (title, desc)
-    return title, desc
+    return for_page('/seo/'+t['slug']+'.html')
 
 def social_image_name(path):
     return 'workspace-guides' if path == '/seo/' else Path(path).stem
@@ -153,6 +130,7 @@ for i, line in enumerate((ROOT / 'tools/seo-topics.txt').read_text().splitlines(
 assert len(topics) == 100 and len({t['slug'] for t in topics}) == 100
 
 def head(title, desc, path, schema, hub=False):
+    title,desc=for_page(path)
     image = f'{BASE}/seo/assets/social/{social_image_name(path)}.png'
     image_alt = title.removesuffix(' | JobReady') + ' — JobReady workspace guide'
     return f'''<!doctype html>
@@ -242,8 +220,7 @@ def build_page(t):
 </article></div></div><section class="related"><div class="wrap"><div class="related-head"><div><span class="eyebrow">KEEP EXPLORING</span><h2>A few useful next reads.</h2></div><a href="/seo/">Browse all 100 guides ↗</a></div><div class="cards">{''.join(card(x) for x in related(t))}</div></div></section></main>''' + footer()
 
 def build_hub():
-    title = 'Workspace Guides: Coworking & Virtual Offices | JobReady'
-    desc = 'Explore 100 practical guides to Patna coworking, virtual offices, booking, workspace costs and provider comparisons. Find the right questions before you commit.'
+    title,desc=for_page('/seo/')
     schema = {'@context':'https://schema.org','@type':'CollectionPage','name':title,'url':BASE+'/seo/','description':desc,'mainEntity':{'@type':'ItemList','numberOfItems':100,'itemListElement':[{'@type':'ListItem','position':t['id'],'name':t['keyword'],'url':BASE+'/seo/'+t['slug']+'.html'} for t in topics]}}
     filters = '<button type="button" data-filter="all" aria-pressed="true">All guides</button>' + ''.join(f'<button type="button" data-filter="{i}" aria-pressed="false">{esc(c)}</button>' for i,c in enumerate(CATEGORIES))
     return head(title,desc,'/seo/',schema,True)+f'''<main id="main" class="wrap"><div class="directory-hero"><span class="eyebrow">THE JOBREADY WORKSPACE EDIT / 100 GUIDES</span><h1>Find your space.<br>Make your next move.</h1><p class="lede">From a desk for the day to an address for your business. Practical guides to help you ask better questions, compare your options and choose with confidence.</p><a class="button" href="#directory">Explore the collection ↓</a></div><div class="strip"><div><strong>01 / Work locally</strong><span>Patna locations & commutes</span></div><div><strong>02 / Choose clearly</strong><span>Plans, features & comparisons</span></div><div><strong>03 / Move thoughtfully</strong><span>Checklists before commitments</span></div></div><section id="directory" aria-label="Find a workspace guide"><div class="directory-tools"><label class="search-label" for="guide-search">What are you looking for?</label><div class="search"><input id="guide-search" type="search" placeholder="Try GST, Boring Road, meeting rooms…" aria-controls="guides" autocomplete="off"></div><div class="filters" role="group" aria-label="Filter guides by category">{filters}</div><p class="count" id="result-count" role="status" aria-live="polite">100 of 100 guides</p></div><div class="cards directory-grid" id="guides">{''.join(card(t,True) for t in topics)}</div><p class="empty" id="no-results" hidden>No matching guides. Try a broader search or choose “All guides”.</p></section><div class="hub-note"><h2>Useful guidance. Clear expectations.</h2><p>JobReady’s stated location is Ashiana More, Raja Bazar, Indrapuri, Patna. Locality guides help you compare commutes; they do not establish additional branches. Services, amenities, prices and hours must be confirmed directly. Competitor guides are independent editorial comparisons with no claimed affiliation or live competitor inventory.</p><p>For registration-related address use, ask a qualified adviser to review the actual documents. No guide guarantees statutory approval.</p></div></main>'''+footer()
@@ -259,7 +236,7 @@ def main():
     (out / 'index.html').write_text(build_hub().replace('↗','→'))
     (out / 'keyword-map.json').write_text(json.dumps(topics,ensure_ascii=False,indent=2)+'\n')
     with (out/'metadata.csv').open('w',newline='') as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator='\n')
         writer.writerow(['Keyword / H1','Title tag','Meta description','Canonical URL','Open Graph image'])
         for topic in topics:
             title, desc = metadata(topic)
