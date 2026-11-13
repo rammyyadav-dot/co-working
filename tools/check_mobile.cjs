@@ -58,7 +58,7 @@ const widths = [320,375,390,768,1024,1440];
       await toggle.click();
       assert.equal(await toggle.getAttribute('aria-expanded'),'true');
       assert(await nav.isVisible());
-      assert.equal(await nav.locator('a').count(),17);
+      assert.equal(await nav.locator('a').count(),13);
       assert(await nav.locator('a:visible').evaluateAll(items=>items.every(el=>el.getBoundingClientRect().height>=44)));
       await page.keyboard.press('Escape');
       assert.equal(await toggle.getAttribute('aria-expanded'),'false');

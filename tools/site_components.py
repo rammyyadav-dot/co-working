@@ -1,29 +1,44 @@
 """Shared static markup for the site and generated guides."""
 from html import escape
 
-LINKS = [
-    ('/index.html', 'Home'),
-    ('/coworking/', 'Coworking'),
-    ('/jobreadyvirtualoffice.html', 'Virtual office'),
-    ('/company_registration.html', 'Company registration'),
-    ('/business_services.html', 'Business services'),
-    ('/tax_compliance.html', 'Tax & compliance'),
-    ('/index.html#meeting-rooms', 'Meeting rooms'),
-    ('/enterprise.html', 'Enterprise'),
-    ('/seo/', 'Workspace guides'),
-]
-
 def header(current=''):
-    categories = [('offices','Offices & coworking'),('desks','Desks & day passes'),('virtual-office','Virtual office'),('meeting-rooms','Meeting rooms'),('budget','Budget options'),('locations','Local commutes'),('teams','Private & team space')]
-    coworking = '<details class="site-coworking"><summary'+(' aria-current="true"' if current.startswith('/coworking') else '')+'>Coworking <span aria-hidden="true">⌄</span></summary><div class="site-coworking-menu"><a href="/coworking/">Explore all workspaces <span aria-hidden="true">↗</span></a>'+''.join(f'<a href="/coworking/#{key}">{label}</a>' for key,label in categories)+'</div></details>'
-    links = ''.join(coworking if url == '/coworking/' else f'<a href="{url}"'+(' aria-current="page"' if current == url else '')+f'>{label}</a>' for url,label in LINKS)
+    arrow = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    def link(url, label, description=''):
+        active = ' aria-current="page"' if current == url else ''
+        return f'<a href="{url}"{active}><strong>{label}</strong>'+(f'<span>{description}</span>' if description else '')+'</a>'
+    workspaces = [
+        ('/coworking/#desks', 'Desks & day passes', 'For a day, a week or your regular routine'),
+        ('/coworking/#teams', 'Private & team space', 'Find room to focus and work together'),
+        ('/coworking/meeting-rooms-in-patna/', 'Meeting rooms', 'Client conversations, interviews and reviews'),
+        ('/enterprise.html', 'Enterprise offices', 'Plan a managed base for your team'),
+        ('/coworking/#budget', 'Budget options', 'Compare plans around your actual attendance'),
+        ('/coworking/#locations', 'Locations & commutes', 'Check the journey to our Raja Bazar centre'),
+    ]
+    services = [
+        ('/business_services.html', 'Business services', 'Support for your day-to-day operations'),
+        ('/company_registration.html', 'Company registration', 'Explore incorporation and documentation'),
+        ('/tax_compliance.html', 'GST & tax compliance', 'Registration, filing and compliance support'),
+    ]
+    def group(label,key,items,active=False):
+        return f'<details class="site-nav-group site-nav-{key}"'+(' data-current="true"' if active else '')+f'><summary>{label}{arrow}</summary><div class="site-nav-panel" id="site-{key}-panel"><p class="site-nav-eyebrow">'+('Find your working base' if key=='workspaces' else 'Build your business')+'</p><div class="site-nav-panel-links">'+''.join(link(*item) for item in items)+'</div>'+('<a class="site-nav-all" href="/coworking/">Explore all 100 workspace pages <span aria-hidden="true">↗</span></a>' if key=='workspaces' else '')+'</div></details>'
+    links=group('Coworking','workspaces',workspaces,current.startswith('/coworking/') or current=='/enterprise.html')
+    links+=link('/jobreadyvirtualoffice.html','Virtual office')
+    links+=group('Business services','services',services,current in {item[0] for item in services})
+    links+=link('/seo/','Guides')
+    contacts = {
+        '/jobreadyvirtualoffice.html': '/jobreadyvirtualoffice.html#virtual-enquiry',
+        '/company_registration.html': '/company_registration.html#lead-form',
+        '/business_services.html': '/business_services.html#business-enquiry',
+        '/tax_compliance.html': '/tax_compliance.html#contact',
+    }
+    contact = current+'#enquire' if current.startswith('/coworking/') else contacts.get(current, '/index.html#contact')
     return f'''<a class="site-skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="site-header-inner">
 <a class="site-brand" href="/index.html" aria-label="JobReady home">JOBREADY<span>.</span></a>
-<div class="site-header-actions"><a class="site-call" href="tel:+919172712982">Call us</a>
+<div class="site-header-actions"><a class="site-call" href="tel:+919172712982" aria-label="Call JobReady at +91 9172712982"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3 3 5-3 3a15 15 0 0 0 6 6l3-3 5 3c0 3-2 5-5 4C8 19 5 16 3 8 2 5 4 3 7 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Call the team</span></a><a class="site-header-cta" href="{contact}">Talk to us <span aria-hidden="true">↗</span></a>
 <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Menu</span></button></div>
-<nav class="site-navigation" id="site-navigation" aria-label="Main navigation">{links}<a class="site-nav-contact" href="/index.html#contact">Contact & enquiries</a></nav>
-</div><noscript><style>@media(max-width:1279px){{.site-header{{position:relative}}.site-header .site-navigation{{display:grid;grid-template-columns:1fr}}.site-menu-toggle{{display:none}}}}</style></noscript></header>'''
+<nav class="site-navigation" id="site-navigation" aria-label="Main navigation">{links}<a class="site-nav-contact" href="{contact}"><strong>Talk to us</strong><span>Get help choosing your next step ↗</span></a></nav>
+</div><noscript><style>@media(max-width:1099px){{.site-header{{position:relative}}.site-header .site-navigation{{display:flex;flex-direction:column;align-items:stretch}}.site-menu-toggle{{display:none}}}}</style></noscript></header>'''
 
 def enquiry_form(service, options=(), form_id=''):
     key = form_id or 'service-enquiry'
