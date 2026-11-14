@@ -22,6 +22,13 @@ for path in files:
     else:
         assert page.meta['og:title']==page.meta['twitter:title']==title,filename
         assert page.meta['og:description']==page.meta['twitter:description']==description,filename
+        assert 'noindex' not in page.meta['robots'],filename
+        assert page.meta['og:url']==page.canonical,filename
+        assert page.meta['og:image']==page.meta['twitter:image'],filename
+        assert page.meta['og:image:alt']==page.meta['twitter:image:alt']==title,filename
+        from urllib.parse import urlsplit
+        assert (ROOT/urlsplit(page.meta['og:image']).path.lstrip('/')).is_file(),filename
+    assert 'keywords' not in page.meta,filename
     def schemas(node):
         if isinstance(node,dict):
             types=node.get('@type',[])

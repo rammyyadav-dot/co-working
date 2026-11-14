@@ -12,7 +12,19 @@ def apply(filename):
     text=path.read_text();head,body=text.split('</head>',1)
     head,count=re.subn(r'<title>.*?</title>',lambda m:'<title>'+escape(title)+'</title>',head,flags=re.S)
     assert count==1,filename
+    # Search engines ignore meta keywords; old lists can misstate page scope.
+    head=re.sub(r'<meta\b(?=[^>]*\bname=["\x27]keywords["\x27])[^>]*>\s*','',head,flags=re.I)
+    canonical=BASE+'/'+('' if filename=='index.html' else filename.removesuffix('index.html') if filename.endswith('/index.html') else filename)
     values={'description':description,'og:title':title,'og:description':description,'twitter:title':title,'twitter:description':description}
+    if filename!='404.html':
+        values.update({'robots':'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1','og:type':'website' if not filename.startswith('seo/') or filename=='seo/index.html' else 'article','og:locale':'en_IN','og:site_name':'JobReady','og:url':canonical,'twitter:card':'summary_large_image'})
+        image=re.search(r'<meta\b[^>]*property="og:image"[^>]*content="([^"]+)"',head)
+        image_url=image.group(1) if image else BASE+'/seo/assets/social/company-registration.png'
+        service_map=json.loads((ROOT/'content/local-services-map.json').read_text())
+        service=next((row for row in service_map if row['url']=='/'+filename),None)
+        if service:
+            image_url=BASE+'/seo/assets/social/'+('company-registration.png' if service['group']=='Company registration' else 'tax-compliance.png')
+        values.update({'og:image':image_url,'og:image:alt':title,'twitter:image':image_url,'twitter:image:alt':title})
     for key,value in values.items():
         kind='property' if key.startswith('og:') else 'name'
         tag=f'<meta {kind}="{key}" content="{escape(value,quote=True)}">'
@@ -43,6 +55,11 @@ def main():
     # Directory cards preview the exact title and description of each guide.
     (ROOT/'seo/index.html').write_text(build_hub().replace('↗','→'))
     for filename in COPY:apply(filename)
+    manifest_path=ROOT/'coworking/manifest.json'
+    manifest=json.loads(manifest_path.read_text())
+    for row in manifest:
+        row['title'],row['description']=for_page(row['file'])
+    manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
     with (ROOT/'seo/metadata.csv').open('w',newline='') as handle:
         writer=csv.writer(handle,lineterminator='\n')
         writer.writerow(['Keyword / H1','Title tag','Meta description','Canonical URL','Open Graph image'])

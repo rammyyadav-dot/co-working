@@ -116,7 +116,8 @@ def main():
     sitemap = ElementTree.parse(ROOT/'sitemap.xml')
     urls = [x.text for x in sitemap.findall('.//{*}loc')]
     collection = json.loads((ROOT/'coworking/manifest.json').read_text()) if (ROOT/'coworking/manifest.json').exists() else []
-    assert len(urls) == len(set(urls)) == 107 + (len(collection) + 1 if collection else 0)
+    from seo_metadata import COPY
+    assert len(urls) == len(set(urls)) == len(COPY)-1  # 404 remains outside the sitemap.
     assert canonicals <= set(urls)
     for url in urls:
         assert url.startswith(BASE+'/')
