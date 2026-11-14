@@ -86,3 +86,10 @@ python3 tools/check_coworking.py
 ```
 
 The migration is safe to rerun. `content/url-migration-report.csv` records the old URL, destination and intended 301 status. The sitemap contains 227 canonical indexable URLs; the 404 page remains excluded. The local Python development server serves the directory URLs but does not implement the host redirect rules.
+
+
+## Government tender consultancy
+
+`/government-tender-consultancy/` is the Patna/Bihar tender and GeM service landing page. It covers eligibility, technical bids, BOQ review, EMD/PBG records, sector-specific preparation and post-award billing. It includes ten visible FAQs matching FAQPage schema, Service/LocalBusiness/Breadcrumb data, a labelled WhatsApp enquiry with an optional deadline, and links from Business Services, Company Registration and Contractor Accounts.
+
+`content/tender-keywords.csv` contains 50 editorial keyword targets across ten intent clusters. They are not measured search-volume rankings. `content/tender-seo-notes.md` records the targeting, geo data and content boundaries. The page is independent of government portals and makes no award or payment guarantee. Do not send confidential pricing or authentication credentials through its initial enquiry.

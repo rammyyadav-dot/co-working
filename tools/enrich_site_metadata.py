@@ -24,7 +24,8 @@ def apply(filename):
         service_map=json.loads((ROOT/'content/local-services-map.json').read_text())
         service=next((row for row in service_map if row['url']==canonical.removeprefix(BASE)),None)
         if service:
-            image_url=BASE+'/seo/assets/social/'+('company-registration.png' if service['group']=='Company registration' else 'tax-compliance.png')
+            image_name={'Company registration':'company-registration.png','Business services':'business-services.png'}.get(service['group'],'tax-compliance.png')
+            image_url=BASE+'/seo/assets/social/'+image_name
         values.update({'og:image':image_url,'og:image:alt':title,'twitter:image':image_url,'twitter:image:alt':title})
     for key,value in values.items():
         kind='property' if key.startswith('og:') else 'name'
