@@ -5,6 +5,7 @@ from pathlib import Path
 from html import escape
 from generate_seo import BASE, build_social_image
 from seo_metadata import for_page
+from migrate_urls import destination,file_for,normalize
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = {'index.html': ('Coworking Space in Patna', 'homepage'),
@@ -17,7 +18,7 @@ PAGES = {'index.html': ('Coworking Space in Patna', 'homepage'),
 def main():
     for filename,(label,card) in PAGES.items():
         title,desc=for_page(filename)
-        file = ROOT/filename
+        file = ROOT/file_for(destination('/'+filename))
         text=file.read_text()
         head,body=text.split('</head>',1)
         head=re.sub(r'<title>.*?</title>',f'<title>{escape(title)}</title>',head,flags=re.S)
@@ -36,7 +37,7 @@ def main():
         addition+=''.join(f'<meta name="{key}" content="{escape(value,quote=True)}">\n' for key,value in meta.items())
         addition+=''.join(f'<meta property="og:{key}" content="{escape(value,quote=True)}">\n' for key,value in og.items())
         build_social_image(label,'JobReady / Patna workspace & business services',card)
-        file.write_text(head+addition+'</head>'+body)
+        file.write_text(normalize(head+addition+'</head>'+body,'/'+filename))
     print('Updated six primary-page metadata sets and 1200×630 social cards.')
 
 if __name__ == '__main__': main()

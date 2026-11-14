@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree
 from seo_metadata import for_page
+from migrate_urls import file_for,destination
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://coworking.jobreadybpo.com'
@@ -62,7 +63,7 @@ class Page(HTMLParser):
 def main():
     topics = json.loads((ROOT/'seo/keyword-map.json').read_text())
     assert len(topics) == 100
-    paths = [ROOT/'seo/index.html']+[ROOT/'seo'/f'{t["slug"]}.html' for t in topics]
+    paths = [ROOT/'guides/index.html']+[ROOT/'guides'/t['slug']/'index.html' for t in topics]
     pages = {path:Page(path.read_text()) for path in paths}
     titles, descriptions, canonicals, words = set(), set(), set(), []
     for path, p in pages.items():
@@ -74,7 +75,7 @@ def main():
         assert p.meta['og:url'] == p.canonical, path
         assert p.meta['og:title'] == p.meta['twitter:title'] == p.title, path
         assert p.meta['og:description'] == p.meta['twitter:description'] == desc, path
-        assert p.meta['og:type'] == ('website' if path.name == 'index.html' else 'article'), path
+        assert p.meta['og:type'] == ('website' if path == ROOT/'guides/index.html' else 'article'), path
         assert p.meta['og:locale'] == 'en_IN', path
         assert p.meta['og:site_name'], path
         assert p.meta['twitter:card'] == 'summary_large_image', path
@@ -102,16 +103,16 @@ def main():
                 parsed = pages.get(target) or Page(target.read_text())
                 assert unquote(u.fragment) in parsed.ids, (path,link)
     for t in topics:
-        p = pages[ROOT/'seo'/f'{t["slug"]}.html']
+        p = pages[ROOT/'guides'/t['slug']/'index.html']
         assert p.h1 == [t['keyword']]
         assert (p.title,p.meta['description'])==for_page('/seo/'+t['slug']+'.html')
         assert '…' not in p.meta['description'] and p.meta['description'].endswith('.'), p.meta['description']
-        assert p.canonical == BASE+'/seo/'+t['slug']+'.html'
+        assert p.canonical == BASE+'/guides/'+t['slug']+'/'
         graph = p.schemas[0]['@graph']
         faq = next(x for x in graph if x['@type']=='FAQPage')
         assert [x['name'] for x in faq['mainEntity']] == p.faq
-        assert p.title in pages[ROOT/'seo/index.html'].text, t['slug']
-        assert p.meta['description'] in pages[ROOT/'seo/index.html'].text, t['slug']
+        assert p.title in pages[ROOT/'guides/index.html'].text, t['slug']
+        assert p.meta['description'] in pages[ROOT/'guides/index.html'].text, t['slug']
         assert t['question'] in p.faq and len(p.faq) == 5
     sitemap = ElementTree.parse(ROOT/'sitemap.xml')
     urls = [x.text for x in sitemap.findall('.//{*}loc')]
@@ -124,10 +125,10 @@ def main():
         target = ROOT/urlsplit(url).path.lstrip('/')
         assert target.exists(), url
     assert BASE+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
-    assert 'href="seo/"' in (ROOT/'index.html').read_text()
+    assert 'href="/guides/"' in (ROOT/'index.html').read_text()
     primary_titles, primary_descriptions = set(), set()
     for filename in ['index.html','jobreadyvirtualoffice.html','company_registration.html','business_services.html','tax_compliance.html','enterprise.html']:
-        path = ROOT/filename
+        path = ROOT/file_for(destination('/'+filename))
         page = Page(path.read_text())
         assert len(page.h1) == 1 and len(page.title) <= 60, filename
         assert page.meta['robots'] == 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', filename
@@ -135,7 +136,7 @@ def main():
         assert 120 <= len(description) <= 155 and description.endswith('.'), filename
         assert page.title not in primary_titles and description not in primary_descriptions, filename
         primary_titles.add(page.title); primary_descriptions.add(description)
-        assert page.canonical == BASE+('/' if filename=='index.html' else '/'+filename), filename
+        assert page.canonical == BASE+destination('/'+filename), filename
         assert page.meta['og:url'] == page.canonical and page.canonical in urls
         assert page.meta['og:title'] == page.meta['twitter:title'] == page.title
         assert page.meta['og:description'] == page.meta['twitter:description'] == description

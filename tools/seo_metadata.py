@@ -6,9 +6,11 @@ ROOT=Path(__file__).resolve().parents[1]
 TITLE_MAX=60
 DESCRIPTION_MAX=155
 COPY=json.loads((ROOT/'content/seo-metadata.json').read_text())
+ROUTES=json.loads((ROOT/'content/url-migrations.json').read_text())
 
 def for_page(path):
-    key=str(path).split('#',1)[0].lstrip('/')
+    route='/'+str(path).split('#',1)[0].lstrip('/')
+    key=ROUTES.get(route,route).lstrip('/')
     if not key or key.endswith('/'):key+='index.html'
     record=COPY[key]
     title,description=record['title'],record['description']

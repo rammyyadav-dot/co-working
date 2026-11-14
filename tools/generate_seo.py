@@ -251,4 +251,7 @@ def main():
     (ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+BASE+'/sitemap.xml\n')
     print(f'Generated {len(topics)} topic pages, directory, keyword map and {len(paths)} sitemap URLs.')
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
+    from migrate_urls import main as migrate
+    migrate()

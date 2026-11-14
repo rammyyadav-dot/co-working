@@ -5,6 +5,7 @@ from html import escape
 from pathlib import Path
 from seo_metadata import ROOT,COPY,for_page
 from generate_seo import BASE,build_hub,metadata,topics
+from migrate_urls import clean_url,normalize
 
 def apply(filename):
     path=ROOT/filename
@@ -17,11 +18,11 @@ def apply(filename):
     canonical=BASE+'/'+('' if filename=='index.html' else filename.removesuffix('index.html') if filename.endswith('/index.html') else filename)
     values={'description':description,'og:title':title,'og:description':description,'twitter:title':title,'twitter:description':description}
     if filename!='404.html':
-        values.update({'robots':'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1','og:type':'website' if not filename.startswith('seo/') or filename=='seo/index.html' else 'article','og:locale':'en_IN','og:site_name':'JobReady','og:url':canonical,'twitter:card':'summary_large_image'})
+        values.update({'robots':'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1','og:type':'website' if not filename.startswith('guides/') or filename=='guides/index.html' else 'article','og:locale':'en_IN','og:site_name':'JobReady','og:url':canonical,'twitter:card':'summary_large_image'})
         image=re.search(r'<meta\b[^>]*property="og:image"[^>]*content="([^"]+)"',head)
         image_url=image.group(1) if image else BASE+'/seo/assets/social/company-registration.png'
         service_map=json.loads((ROOT/'content/local-services-map.json').read_text())
-        service=next((row for row in service_map if row['url']=='/'+filename),None)
+        service=next((row for row in service_map if row['url']==canonical.removeprefix(BASE)),None)
         if service:
             image_url=BASE+'/seo/assets/social/'+('company-registration.png' if service['group']=='Company registration' else 'tax-compliance.png')
         values.update({'og:image':image_url,'og:image:alt':title,'twitter:image':image_url,'twitter:image:alt':title})
@@ -53,7 +54,7 @@ def main():
     files={str(p.relative_to(ROOT)) for p in ROOT.rglob('*.html')}
     assert files==set(COPY),'Review metadata for added or removed pages before applying.'
     # Directory cards preview the exact title and description of each guide.
-    (ROOT/'seo/index.html').write_text(build_hub().replace('↗','→'))
+    (ROOT/'guides/index.html').write_text(normalize(build_hub().replace('↗','→'),'/seo/index.html'))
     for filename in COPY:apply(filename)
     manifest_path=ROOT/'coworking/manifest.json'
     manifest=json.loads(manifest_path.read_text())
@@ -65,7 +66,7 @@ def main():
         writer.writerow(['Keyword / H1','Title tag','Meta description','Canonical URL','Open Graph image'])
         for topic in topics:
             title,desc=metadata(topic)
-            writer.writerow([topic['keyword'],title,desc,f'{BASE}/seo/{topic["slug"]}.html',f'{BASE}/seo/assets/social/{topic["slug"]}.png'])
+            writer.writerow([topic['keyword'],title,desc,clean_url(f'{BASE}/seo/{topic["slug"]}.html'),f'{BASE}/seo/assets/social/{topic["slug"]}.png'])
     audit=[]
     for filename in COPY:
         title,desc=for_page(filename)

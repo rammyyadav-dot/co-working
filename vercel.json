@@ -1,0 +1,1890 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business_services.html",
+      "destination": "/business-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company_registration.html",
+      "destination": "/company-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/enterprise.html",
+      "destination": "/managed-offices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jobreadyvirtualoffice.html",
+      "destination": "/virtual-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax_compliance.html",
+      "destination": "/tax-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/shop-establishment-registration-patna.html",
+      "destination": "/shop-establishment/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-registration-patna.html",
+      "destination": "/gst-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contractor-project-report-cma-patna.html",
+      "destination": "/contractor-accounts-cma/",
+      "statusCode": 301
+    },
+    {
+      "source": "/roc-filing-compliance-patna.html",
+      "destination": "/roc-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-limited-company-registration-patna.html",
+      "destination": "/private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax-audit-notice-consultant-patna.html",
+      "destination": "/tax-audit-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/accounting-bookkeeping-virtual-cfo-patna.html",
+      "destination": "/accounting-virtual-cfo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/partnership-proprietorship-registration-patna.html",
+      "destination": "/partnership-proprietorship/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-physical-verification-noc-patna.html",
+      "destination": "/gst-verification-noc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/llp-registration-patna.html",
+      "destination": "/llp-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-return-filing-notice-patna.html",
+      "destination": "/gst-returns-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company-registration-fees-documents-bihar.html",
+      "destination": "/company-registration-costs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/section-8-ngo-registration-patna.html",
+      "destination": "/ngo-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/startup-bihar-udyam-registration-patna.html",
+      "destination": "/startup-msme-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-cancellation-revocation-patna.html",
+      "destination": "/gst-cancellation-revocation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/income-tax-itr-tds-filing-patna.html",
+      "destination": "/itr-tds-filing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eway-bill-lut-filing-bihar.html",
+      "destination": "/eway-bill-lut/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bihar-professional-tax-registration.html",
+      "destination": "/professional-tax-bihar/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opc-registration-patna.html",
+      "destination": "/opc-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/24-7-access-coworking-office.html",
+      "destination": "/guides/24-7-access-coworking-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/affordable-workspace-in-patna.html",
+      "destination": "/guides/affordable-workspace-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-coworking-aggregator-sites.html",
+      "destination": "/guides/best-coworking-aggregator-sites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-coworking-space-in-patna.html",
+      "destination": "/guides/best-coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-shared-office-places-near-me.html",
+      "destination": "/guides/best-shared-office-places-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-shared-workspaces-patna.html",
+      "destination": "/guides/best-shared-workspaces-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-coworking-space-online.html",
+      "destination": "/guides/book-coworking-space-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-shared-office-online.html",
+      "destination": "/guides/book-shared-office-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-shared-office-space-in-patna.html",
+      "destination": "/guides/book-shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-spaces-workspaces-online.html",
+      "destination": "/guides/book-spaces-workspaces-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/bpo-seat-rental-flex-space.html",
+      "destination": "/guides/bpo-seat-rental-flex-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/cheap-virtual-office-in-patna.html",
+      "destination": "/guides/cheap-virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/commercial-workspace-subscription.html",
+      "destination": "/guides/commercial-workspace-subscription/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/company-registration-virtual-address-patna.html",
+      "destination": "/guides/company-registration-virtual-address-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/compare-coworker-office-listings.html",
+      "destination": "/guides/compare-coworker-office-listings/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/conference-room-rental-patna.html",
+      "destination": "/guides/conference-room-rental-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/corporate-team-flexi-workspaces.html",
+      "destination": "/guides/corporate-team-flexi-workspaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-coworking-spaces.html",
+      "destination": "/guides/coworker-coworking-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-platform-shared-desk-rates.html",
+      "destination": "/guides/coworker-platform-shared-desk-rates/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-virtual-office-booking.html",
+      "destination": "/guides/coworker-virtual-office-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-community-events.html",
+      "destination": "/guides/coworking-space-community-events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-for-freelancers.html",
+      "destination": "/guides/coworking-space-for-freelancers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-for-tech-developers.html",
+      "destination": "/guides/coworking-space-for-tech-developers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-boring-road-patna.html",
+      "destination": "/guides/coworking-space-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-kankarbagh-patna.html",
+      "destination": "/guides/coworking-space-in-kankarbagh-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-patna.html",
+      "destination": "/guides/coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-near-patna-junction.html",
+      "destination": "/guides/coworking-space-near-patna-junction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-with-conference-rooms.html",
+      "destination": "/guides/coworking-space-with-conference-rooms/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-with-parking-facility.html",
+      "destination": "/guides/coworking-space-with-parking-facility/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/custom-managed-workspace-rental.html",
+      "destination": "/guides/custom-managed-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/daily-desk-rental-shared-office.html",
+      "destination": "/guides/daily-desk-rental-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/day-pass-coworking-space-patna.html",
+      "destination": "/guides/day-pass-coworking-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/dedicated-desk-for-rent.html",
+      "destination": "/guides/dedicated-desk-for-rent/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/dedicated-private-office-suite.html",
+      "destination": "/guides/dedicated-private-office-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/enterprise-coworking-space-booking.html",
+      "destination": "/guides/enterprise-coworking-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/ergonomic-desk-rental-coworking.html",
+      "destination": "/guides/ergonomic-desk-rental-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/executive-private-office-suites.html",
+      "destination": "/guides/executive-private-office-suites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/flexible-desk-space-without-lock-in-period.html",
+      "destination": "/guides/flexible-desk-space-without-lock-in-period/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/flexible-workspace-solutions.html",
+      "destination": "/guides/flexible-workspace-solutions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/freelancer-desk-patna.html",
+      "destination": "/guides/freelancer-desk-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/fully-furnished-office-for-rent-patna.html",
+      "destination": "/guides/fully-furnished-office-for-rent-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/fully-serviced-office-rental.html",
+      "destination": "/guides/fully-serviced-office-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/global-coworking-aggregators.html",
+      "destination": "/guides/global-coworking-aggregators/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/gst-registration-virtual-office-patna.html",
+      "destination": "/guides/gst-registration-virtual-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hire-desk-in-shared-office.html",
+      "destination": "/guides/hire-desk-in-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hot-desking-booking-near-me.html",
+      "destination": "/guides/hot-desking-booking-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hourly-workspace-rental.html",
+      "destination": "/guides/hourly-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hybrid-work-shared-office.html",
+      "destination": "/guides/hybrid-work-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/index.html",
+      "destination": "/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/instant-virtual-office-activation.html",
+      "destination": "/guides/instant-virtual-office-activation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/low-cost-virtual-office-address.html",
+      "destination": "/guides/low-cost-virtual-office-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/managed-office-space-in-patna.html",
+      "destination": "/guides/managed-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/meeting-rooms-for-rent-in-patna.html",
+      "destination": "/guides/meeting-rooms-for-rent-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/monthly-flexi-desk-pass.html",
+      "destination": "/guides/monthly-flexi-desk-pass/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/night-shift-coworking-space.html",
+      "destination": "/guides/night-shift-coworking-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/office-space-for-digital-nomads.html",
+      "destination": "/guides/office-space-for-digital-nomads/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/on-demand-meeting-room-rental.html",
+      "destination": "/guides/on-demand-meeting-room-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/overnight-coworking-space-access.html",
+      "destination": "/guides/overnight-coworking-space-access/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/plug-and-play-office-space-patna.html",
+      "destination": "/guides/plug-and-play-office-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/plug-and-play-workspace-with-tea-and-coffee.html",
+      "destination": "/guides/plug-and-play-workspace-with-tea-and-coffee/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/premium-business-center-shared-desks.html",
+      "destination": "/guides/premium-business-center-shared-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/private-office-cabins-in-patna.html",
+      "destination": "/guides/private-office-cabins-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/professional-business-address-rental.html",
+      "destination": "/guides/professional-business-address-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/quiet-coworking-desks-for-writers.html",
+      "destination": "/guides/quiet-coworking-desks-for-writers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/regus-vs-spaces-workspace-comparison.html",
+      "destination": "/guides/regus-vs-spaces-workspace-comparison/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/remote-work-flexi-desks.html",
+      "destination": "/guides/remote-work-flexi-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-desk-in-patna.html",
+      "destination": "/guides/rent-desk-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-office-desk-for-1-month.html",
+      "destination": "/guides/rent-office-desk-for-1-month/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-private-office-desk.html",
+      "destination": "/guides/rent-private-office-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-for-podcast-recording.html",
+      "destination": "/guides/shared-office-for-podcast-recording/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-booking.html",
+      "destination": "/guides/shared-office-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-in-bailey-road-patna.html",
+      "destination": "/guides/shared-office-space-in-bailey-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-in-patna.html",
+      "destination": "/guides/shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-with-power-backup.html",
+      "destination": "/guides/shared-office-space-with-power-backup/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-with-administrative-receptionist-support.html",
+      "destination": "/guides/shared-office-with-administrative-receptionist-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-with-high-speed-internet.html",
+      "destination": "/guides/shared-office-with-high-speed-internet/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-for-remote-employees.html",
+      "destination": "/guides/shared-workspace-for-remote-employees/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-for-startups.html",
+      "destination": "/guides/shared-workspace-for-startups/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-rental-cost.html",
+      "destination": "/guides/shared-workspace-rental-cost/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/short-term-office-lease.html",
+      "destination": "/guides/short-term-office-lease/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/small-business-shared-office.html",
+      "destination": "/guides/small-business-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-business-center-rental.html",
+      "destination": "/guides/spaces-business-center-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-coworking.html",
+      "destination": "/guides/spaces-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-private-cabins-pricing.html",
+      "destination": "/guides/spaces-private-cabins-pricing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-shared-office-space.html",
+      "destination": "/guides/spaces-shared-office-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-virtual-address-membership.html",
+      "destination": "/guides/spaces-virtual-address-membership/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/startups-shared-office-patna.html",
+      "destination": "/guides/startups-shared-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/top-spaces-alternatives-for-shared-office.html",
+      "destination": "/guides/top-spaces-alternatives-for-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-address-for-solopreneurs.html",
+      "destination": "/guides/virtual-address-for-solopreneurs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-address-mail-handling-service.html",
+      "destination": "/guides/virtual-address-mail-handling-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-business-registration.html",
+      "destination": "/guides/virtual-office-for-business-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-gst-address.html",
+      "destination": "/guides/virtual-office-for-gst-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-private-limited-company.html",
+      "destination": "/guides/virtual-office-for-private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-in-boring-road-patna.html",
+      "destination": "/guides/virtual-office-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-in-patna.html",
+      "destination": "/guides/virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-noc-provider.html",
+      "destination": "/guides/virtual-office-noc-provider/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-with-local-landline-number.html",
+      "destination": "/guides/virtual-office-with-local-landline-number/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-with-mail-forwarding-services.html",
+      "destination": "/guides/virtual-office-with-mail-forwarding-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/wework-vs-shared-office-spaces.html",
+      "destination": "/guides/wework-vs-shared-office-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/workspaces-with-soundproof-phone-booths.html",
+      "destination": "/guides/workspaces-with-soundproof-phone-booths/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/workstations-for-it-companies.html",
+      "destination": "/guides/workstations-for-it-companies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/",
+      "destination": "/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business_services",
+      "destination": "/business-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company_registration",
+      "destination": "/company-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/enterprise",
+      "destination": "/managed-offices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jobreadyvirtualoffice",
+      "destination": "/virtual-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax_compliance",
+      "destination": "/tax-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/shop-establishment-registration-patna",
+      "destination": "/shop-establishment/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-registration-patna",
+      "destination": "/gst-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contractor-project-report-cma-patna",
+      "destination": "/contractor-accounts-cma/",
+      "statusCode": 301
+    },
+    {
+      "source": "/roc-filing-compliance-patna",
+      "destination": "/roc-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-limited-company-registration-patna",
+      "destination": "/private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax-audit-notice-consultant-patna",
+      "destination": "/tax-audit-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/accounting-bookkeeping-virtual-cfo-patna",
+      "destination": "/accounting-virtual-cfo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/partnership-proprietorship-registration-patna",
+      "destination": "/partnership-proprietorship/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-physical-verification-noc-patna",
+      "destination": "/gst-verification-noc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/llp-registration-patna",
+      "destination": "/llp-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-return-filing-notice-patna",
+      "destination": "/gst-returns-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company-registration-fees-documents-bihar",
+      "destination": "/company-registration-costs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/section-8-ngo-registration-patna",
+      "destination": "/ngo-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/startup-bihar-udyam-registration-patna",
+      "destination": "/startup-msme-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-cancellation-revocation-patna",
+      "destination": "/gst-cancellation-revocation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/income-tax-itr-tds-filing-patna",
+      "destination": "/itr-tds-filing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eway-bill-lut-filing-bihar",
+      "destination": "/eway-bill-lut/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bihar-professional-tax-registration",
+      "destination": "/professional-tax-bihar/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opc-registration-patna",
+      "destination": "/opc-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/24-7-access-coworking-office",
+      "destination": "/guides/24-7-access-coworking-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/affordable-workspace-in-patna",
+      "destination": "/guides/affordable-workspace-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-coworking-aggregator-sites",
+      "destination": "/guides/best-coworking-aggregator-sites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-coworking-space-in-patna",
+      "destination": "/guides/best-coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-shared-office-places-near-me",
+      "destination": "/guides/best-shared-office-places-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/best-shared-workspaces-patna",
+      "destination": "/guides/best-shared-workspaces-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-coworking-space-online",
+      "destination": "/guides/book-coworking-space-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-shared-office-online",
+      "destination": "/guides/book-shared-office-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-shared-office-space-in-patna",
+      "destination": "/guides/book-shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/book-spaces-workspaces-online",
+      "destination": "/guides/book-spaces-workspaces-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/bpo-seat-rental-flex-space",
+      "destination": "/guides/bpo-seat-rental-flex-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/cheap-virtual-office-in-patna",
+      "destination": "/guides/cheap-virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/commercial-workspace-subscription",
+      "destination": "/guides/commercial-workspace-subscription/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/company-registration-virtual-address-patna",
+      "destination": "/guides/company-registration-virtual-address-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/compare-coworker-office-listings",
+      "destination": "/guides/compare-coworker-office-listings/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/conference-room-rental-patna",
+      "destination": "/guides/conference-room-rental-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/corporate-team-flexi-workspaces",
+      "destination": "/guides/corporate-team-flexi-workspaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-coworking-spaces",
+      "destination": "/guides/coworker-coworking-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-platform-shared-desk-rates",
+      "destination": "/guides/coworker-platform-shared-desk-rates/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworker-virtual-office-booking",
+      "destination": "/guides/coworker-virtual-office-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-community-events",
+      "destination": "/guides/coworking-space-community-events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-for-freelancers",
+      "destination": "/guides/coworking-space-for-freelancers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-for-tech-developers",
+      "destination": "/guides/coworking-space-for-tech-developers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-boring-road-patna",
+      "destination": "/guides/coworking-space-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-kankarbagh-patna",
+      "destination": "/guides/coworking-space-in-kankarbagh-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-in-patna",
+      "destination": "/guides/coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-near-patna-junction",
+      "destination": "/guides/coworking-space-near-patna-junction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-with-conference-rooms",
+      "destination": "/guides/coworking-space-with-conference-rooms/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/coworking-space-with-parking-facility",
+      "destination": "/guides/coworking-space-with-parking-facility/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/custom-managed-workspace-rental",
+      "destination": "/guides/custom-managed-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/daily-desk-rental-shared-office",
+      "destination": "/guides/daily-desk-rental-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/day-pass-coworking-space-patna",
+      "destination": "/guides/day-pass-coworking-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/dedicated-desk-for-rent",
+      "destination": "/guides/dedicated-desk-for-rent/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/dedicated-private-office-suite",
+      "destination": "/guides/dedicated-private-office-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/enterprise-coworking-space-booking",
+      "destination": "/guides/enterprise-coworking-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/ergonomic-desk-rental-coworking",
+      "destination": "/guides/ergonomic-desk-rental-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/executive-private-office-suites",
+      "destination": "/guides/executive-private-office-suites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/flexible-desk-space-without-lock-in-period",
+      "destination": "/guides/flexible-desk-space-without-lock-in-period/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/flexible-workspace-solutions",
+      "destination": "/guides/flexible-workspace-solutions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/freelancer-desk-patna",
+      "destination": "/guides/freelancer-desk-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/fully-furnished-office-for-rent-patna",
+      "destination": "/guides/fully-furnished-office-for-rent-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/fully-serviced-office-rental",
+      "destination": "/guides/fully-serviced-office-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/global-coworking-aggregators",
+      "destination": "/guides/global-coworking-aggregators/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/gst-registration-virtual-office-patna",
+      "destination": "/guides/gst-registration-virtual-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hire-desk-in-shared-office",
+      "destination": "/guides/hire-desk-in-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hot-desking-booking-near-me",
+      "destination": "/guides/hot-desking-booking-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hourly-workspace-rental",
+      "destination": "/guides/hourly-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/hybrid-work-shared-office",
+      "destination": "/guides/hybrid-work-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/index",
+      "destination": "/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/instant-virtual-office-activation",
+      "destination": "/guides/instant-virtual-office-activation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/low-cost-virtual-office-address",
+      "destination": "/guides/low-cost-virtual-office-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/managed-office-space-in-patna",
+      "destination": "/guides/managed-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/meeting-rooms-for-rent-in-patna",
+      "destination": "/guides/meeting-rooms-for-rent-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/monthly-flexi-desk-pass",
+      "destination": "/guides/monthly-flexi-desk-pass/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/night-shift-coworking-space",
+      "destination": "/guides/night-shift-coworking-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/office-space-for-digital-nomads",
+      "destination": "/guides/office-space-for-digital-nomads/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/on-demand-meeting-room-rental",
+      "destination": "/guides/on-demand-meeting-room-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/overnight-coworking-space-access",
+      "destination": "/guides/overnight-coworking-space-access/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/plug-and-play-office-space-patna",
+      "destination": "/guides/plug-and-play-office-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/plug-and-play-workspace-with-tea-and-coffee",
+      "destination": "/guides/plug-and-play-workspace-with-tea-and-coffee/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/premium-business-center-shared-desks",
+      "destination": "/guides/premium-business-center-shared-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/private-office-cabins-in-patna",
+      "destination": "/guides/private-office-cabins-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/professional-business-address-rental",
+      "destination": "/guides/professional-business-address-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/quiet-coworking-desks-for-writers",
+      "destination": "/guides/quiet-coworking-desks-for-writers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/regus-vs-spaces-workspace-comparison",
+      "destination": "/guides/regus-vs-spaces-workspace-comparison/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/remote-work-flexi-desks",
+      "destination": "/guides/remote-work-flexi-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-desk-in-patna",
+      "destination": "/guides/rent-desk-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-office-desk-for-1-month",
+      "destination": "/guides/rent-office-desk-for-1-month/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/rent-private-office-desk",
+      "destination": "/guides/rent-private-office-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-for-podcast-recording",
+      "destination": "/guides/shared-office-for-podcast-recording/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-booking",
+      "destination": "/guides/shared-office-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-in-bailey-road-patna",
+      "destination": "/guides/shared-office-space-in-bailey-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-in-patna",
+      "destination": "/guides/shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-space-with-power-backup",
+      "destination": "/guides/shared-office-space-with-power-backup/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-with-administrative-receptionist-support",
+      "destination": "/guides/shared-office-with-administrative-receptionist-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-office-with-high-speed-internet",
+      "destination": "/guides/shared-office-with-high-speed-internet/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-for-remote-employees",
+      "destination": "/guides/shared-workspace-for-remote-employees/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-for-startups",
+      "destination": "/guides/shared-workspace-for-startups/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/shared-workspace-rental-cost",
+      "destination": "/guides/shared-workspace-rental-cost/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/short-term-office-lease",
+      "destination": "/guides/short-term-office-lease/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/small-business-shared-office",
+      "destination": "/guides/small-business-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-business-center-rental",
+      "destination": "/guides/spaces-business-center-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-coworking",
+      "destination": "/guides/spaces-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-private-cabins-pricing",
+      "destination": "/guides/spaces-private-cabins-pricing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-shared-office-space",
+      "destination": "/guides/spaces-shared-office-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/spaces-virtual-address-membership",
+      "destination": "/guides/spaces-virtual-address-membership/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/startups-shared-office-patna",
+      "destination": "/guides/startups-shared-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/top-spaces-alternatives-for-shared-office",
+      "destination": "/guides/top-spaces-alternatives-for-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-address-for-solopreneurs",
+      "destination": "/guides/virtual-address-for-solopreneurs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-address-mail-handling-service",
+      "destination": "/guides/virtual-address-mail-handling-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-business-registration",
+      "destination": "/guides/virtual-office-for-business-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-gst-address",
+      "destination": "/guides/virtual-office-for-gst-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-for-private-limited-company",
+      "destination": "/guides/virtual-office-for-private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-in-boring-road-patna",
+      "destination": "/guides/virtual-office-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-in-patna",
+      "destination": "/guides/virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-noc-provider",
+      "destination": "/guides/virtual-office-noc-provider/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-with-local-landline-number",
+      "destination": "/guides/virtual-office-with-local-landline-number/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/virtual-office-with-mail-forwarding-services",
+      "destination": "/guides/virtual-office-with-mail-forwarding-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/wework-vs-shared-office-spaces",
+      "destination": "/guides/wework-vs-shared-office-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/workspaces-with-soundproof-phone-booths",
+      "destination": "/guides/workspaces-with-soundproof-phone-booths/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seo/workstations-for-it-companies",
+      "destination": "/guides/workstations-for-it-companies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/accounting-virtual-cfo/index.html",
+      "destination": "/accounting-virtual-cfo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business-services/index.html",
+      "destination": "/business-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company-registration-costs/index.html",
+      "destination": "/company-registration-costs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/company-registration/index.html",
+      "destination": "/company-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contractor-accounts-cma/index.html",
+      "destination": "/contractor-accounts-cma/",
+      "statusCode": 301
+    },
+    {
+      "source": "/eway-bill-lut/index.html",
+      "destination": "/eway-bill-lut/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-cancellation-revocation/index.html",
+      "destination": "/gst-cancellation-revocation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-registration/index.html",
+      "destination": "/gst-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-returns-notices/index.html",
+      "destination": "/gst-returns-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gst-verification-noc/index.html",
+      "destination": "/gst-verification-noc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/index.html",
+      "destination": "/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/24-7-access-coworking-office/index.html",
+      "destination": "/guides/24-7-access-coworking-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/affordable-workspace-in-patna/index.html",
+      "destination": "/guides/affordable-workspace-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/best-coworking-aggregator-sites/index.html",
+      "destination": "/guides/best-coworking-aggregator-sites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/best-coworking-space-in-patna/index.html",
+      "destination": "/guides/best-coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/best-shared-office-places-near-me/index.html",
+      "destination": "/guides/best-shared-office-places-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/best-shared-workspaces-patna/index.html",
+      "destination": "/guides/best-shared-workspaces-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/book-coworking-space-online/index.html",
+      "destination": "/guides/book-coworking-space-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/book-shared-office-online/index.html",
+      "destination": "/guides/book-shared-office-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/book-shared-office-space-in-patna/index.html",
+      "destination": "/guides/book-shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/book-spaces-workspaces-online/index.html",
+      "destination": "/guides/book-spaces-workspaces-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bpo-seat-rental-flex-space/index.html",
+      "destination": "/guides/bpo-seat-rental-flex-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/cheap-virtual-office-in-patna/index.html",
+      "destination": "/guides/cheap-virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/commercial-workspace-subscription/index.html",
+      "destination": "/guides/commercial-workspace-subscription/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/company-registration-virtual-address-patna/index.html",
+      "destination": "/guides/company-registration-virtual-address-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/compare-coworker-office-listings/index.html",
+      "destination": "/guides/compare-coworker-office-listings/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/conference-room-rental-patna/index.html",
+      "destination": "/guides/conference-room-rental-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/corporate-team-flexi-workspaces/index.html",
+      "destination": "/guides/corporate-team-flexi-workspaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworker-coworking-spaces/index.html",
+      "destination": "/guides/coworker-coworking-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworker-platform-shared-desk-rates/index.html",
+      "destination": "/guides/coworker-platform-shared-desk-rates/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworker-virtual-office-booking/index.html",
+      "destination": "/guides/coworker-virtual-office-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-community-events/index.html",
+      "destination": "/guides/coworking-space-community-events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-for-freelancers/index.html",
+      "destination": "/guides/coworking-space-for-freelancers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-for-tech-developers/index.html",
+      "destination": "/guides/coworking-space-for-tech-developers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-in-boring-road-patna/index.html",
+      "destination": "/guides/coworking-space-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-in-kankarbagh-patna/index.html",
+      "destination": "/guides/coworking-space-in-kankarbagh-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-in-patna/index.html",
+      "destination": "/guides/coworking-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-near-patna-junction/index.html",
+      "destination": "/guides/coworking-space-near-patna-junction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-with-conference-rooms/index.html",
+      "destination": "/guides/coworking-space-with-conference-rooms/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/coworking-space-with-parking-facility/index.html",
+      "destination": "/guides/coworking-space-with-parking-facility/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/custom-managed-workspace-rental/index.html",
+      "destination": "/guides/custom-managed-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/daily-desk-rental-shared-office/index.html",
+      "destination": "/guides/daily-desk-rental-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/day-pass-coworking-space-patna/index.html",
+      "destination": "/guides/day-pass-coworking-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/dedicated-desk-for-rent/index.html",
+      "destination": "/guides/dedicated-desk-for-rent/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/dedicated-private-office-suite/index.html",
+      "destination": "/guides/dedicated-private-office-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/enterprise-coworking-space-booking/index.html",
+      "destination": "/guides/enterprise-coworking-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/ergonomic-desk-rental-coworking/index.html",
+      "destination": "/guides/ergonomic-desk-rental-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/executive-private-office-suites/index.html",
+      "destination": "/guides/executive-private-office-suites/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/flexible-desk-space-without-lock-in-period/index.html",
+      "destination": "/guides/flexible-desk-space-without-lock-in-period/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/flexible-workspace-solutions/index.html",
+      "destination": "/guides/flexible-workspace-solutions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/freelancer-desk-patna/index.html",
+      "destination": "/guides/freelancer-desk-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/fully-furnished-office-for-rent-patna/index.html",
+      "destination": "/guides/fully-furnished-office-for-rent-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/fully-serviced-office-rental/index.html",
+      "destination": "/guides/fully-serviced-office-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/global-coworking-aggregators/index.html",
+      "destination": "/guides/global-coworking-aggregators/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/gst-registration-virtual-office-patna/index.html",
+      "destination": "/guides/gst-registration-virtual-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/hire-desk-in-shared-office/index.html",
+      "destination": "/guides/hire-desk-in-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/hot-desking-booking-near-me/index.html",
+      "destination": "/guides/hot-desking-booking-near-me/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/hourly-workspace-rental/index.html",
+      "destination": "/guides/hourly-workspace-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/hybrid-work-shared-office/index.html",
+      "destination": "/guides/hybrid-work-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/instant-virtual-office-activation/index.html",
+      "destination": "/guides/instant-virtual-office-activation/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/low-cost-virtual-office-address/index.html",
+      "destination": "/guides/low-cost-virtual-office-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/managed-office-space-in-patna/index.html",
+      "destination": "/guides/managed-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/meeting-rooms-for-rent-in-patna/index.html",
+      "destination": "/guides/meeting-rooms-for-rent-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/monthly-flexi-desk-pass/index.html",
+      "destination": "/guides/monthly-flexi-desk-pass/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/night-shift-coworking-space/index.html",
+      "destination": "/guides/night-shift-coworking-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/office-space-for-digital-nomads/index.html",
+      "destination": "/guides/office-space-for-digital-nomads/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/on-demand-meeting-room-rental/index.html",
+      "destination": "/guides/on-demand-meeting-room-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/overnight-coworking-space-access/index.html",
+      "destination": "/guides/overnight-coworking-space-access/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/plug-and-play-office-space-patna/index.html",
+      "destination": "/guides/plug-and-play-office-space-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/plug-and-play-workspace-with-tea-and-coffee/index.html",
+      "destination": "/guides/plug-and-play-workspace-with-tea-and-coffee/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/premium-business-center-shared-desks/index.html",
+      "destination": "/guides/premium-business-center-shared-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/private-office-cabins-in-patna/index.html",
+      "destination": "/guides/private-office-cabins-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/professional-business-address-rental/index.html",
+      "destination": "/guides/professional-business-address-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/quiet-coworking-desks-for-writers/index.html",
+      "destination": "/guides/quiet-coworking-desks-for-writers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/regus-vs-spaces-workspace-comparison/index.html",
+      "destination": "/guides/regus-vs-spaces-workspace-comparison/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/remote-work-flexi-desks/index.html",
+      "destination": "/guides/remote-work-flexi-desks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/rent-desk-in-patna/index.html",
+      "destination": "/guides/rent-desk-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/rent-office-desk-for-1-month/index.html",
+      "destination": "/guides/rent-office-desk-for-1-month/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/rent-private-office-desk/index.html",
+      "destination": "/guides/rent-private-office-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-for-podcast-recording/index.html",
+      "destination": "/guides/shared-office-for-podcast-recording/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-space-booking/index.html",
+      "destination": "/guides/shared-office-space-booking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-space-in-bailey-road-patna/index.html",
+      "destination": "/guides/shared-office-space-in-bailey-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-space-in-patna/index.html",
+      "destination": "/guides/shared-office-space-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-space-with-power-backup/index.html",
+      "destination": "/guides/shared-office-space-with-power-backup/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-with-administrative-receptionist-support/index.html",
+      "destination": "/guides/shared-office-with-administrative-receptionist-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-office-with-high-speed-internet/index.html",
+      "destination": "/guides/shared-office-with-high-speed-internet/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-workspace-for-remote-employees/index.html",
+      "destination": "/guides/shared-workspace-for-remote-employees/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-workspace-for-startups/index.html",
+      "destination": "/guides/shared-workspace-for-startups/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/shared-workspace-rental-cost/index.html",
+      "destination": "/guides/shared-workspace-rental-cost/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/short-term-office-lease/index.html",
+      "destination": "/guides/short-term-office-lease/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/small-business-shared-office/index.html",
+      "destination": "/guides/small-business-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/spaces-business-center-rental/index.html",
+      "destination": "/guides/spaces-business-center-rental/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/spaces-coworking/index.html",
+      "destination": "/guides/spaces-coworking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/spaces-private-cabins-pricing/index.html",
+      "destination": "/guides/spaces-private-cabins-pricing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/spaces-shared-office-space/index.html",
+      "destination": "/guides/spaces-shared-office-space/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/spaces-virtual-address-membership/index.html",
+      "destination": "/guides/spaces-virtual-address-membership/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/startups-shared-office-patna/index.html",
+      "destination": "/guides/startups-shared-office-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/top-spaces-alternatives-for-shared-office/index.html",
+      "destination": "/guides/top-spaces-alternatives-for-shared-office/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-address-for-solopreneurs/index.html",
+      "destination": "/guides/virtual-address-for-solopreneurs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-address-mail-handling-service/index.html",
+      "destination": "/guides/virtual-address-mail-handling-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-for-business-registration/index.html",
+      "destination": "/guides/virtual-office-for-business-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-for-gst-address/index.html",
+      "destination": "/guides/virtual-office-for-gst-address/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-for-private-limited-company/index.html",
+      "destination": "/guides/virtual-office-for-private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-in-boring-road-patna/index.html",
+      "destination": "/guides/virtual-office-in-boring-road-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-in-patna/index.html",
+      "destination": "/guides/virtual-office-in-patna/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-noc-provider/index.html",
+      "destination": "/guides/virtual-office-noc-provider/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-with-local-landline-number/index.html",
+      "destination": "/guides/virtual-office-with-local-landline-number/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/virtual-office-with-mail-forwarding-services/index.html",
+      "destination": "/guides/virtual-office-with-mail-forwarding-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/wework-vs-shared-office-spaces/index.html",
+      "destination": "/guides/wework-vs-shared-office-spaces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/workspaces-with-soundproof-phone-booths/index.html",
+      "destination": "/guides/workspaces-with-soundproof-phone-booths/",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/workstations-for-it-companies/index.html",
+      "destination": "/guides/workstations-for-it-companies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/itr-tds-filing/index.html",
+      "destination": "/itr-tds-filing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/llp-registration/index.html",
+      "destination": "/llp-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/managed-offices/index.html",
+      "destination": "/managed-offices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ngo-registration/index.html",
+      "destination": "/ngo-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opc-registration/index.html",
+      "destination": "/opc-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/partnership-proprietorship/index.html",
+      "destination": "/partnership-proprietorship/",
+      "statusCode": 301
+    },
+    {
+      "source": "/private-limited-company/index.html",
+      "destination": "/private-limited-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/professional-tax-bihar/index.html",
+      "destination": "/professional-tax-bihar/",
+      "statusCode": 301
+    },
+    {
+      "source": "/roc-compliance/index.html",
+      "destination": "/roc-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/shop-establishment/index.html",
+      "destination": "/shop-establishment/",
+      "statusCode": 301
+    },
+    {
+      "source": "/startup-msme-registration/index.html",
+      "destination": "/startup-msme-registration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax-audit-notices/index.html",
+      "destination": "/tax-audit-notices/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tax-compliance/index.html",
+      "destination": "/tax-compliance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/virtual-office/index.html",
+      "destination": "/virtual-office/",
+      "statusCode": 301
+    }
+  ]
+}

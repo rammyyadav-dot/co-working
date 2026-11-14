@@ -64,3 +64,25 @@ All three page-maintenance scripts read the shared metadata source, so regenerat
 ## Contact details
 Phone: +91 9172712982
 Email: hello@jobreadybpo.com
+
+
+## Clean URL migration
+
+All public content now uses lowercase, hyphenated directory URLs. Main destinations are `/company-registration/`, `/virtual-office/`, `/business-services/`, `/tax-compliance/`, `/managed-offices/`, `/coworking/` and `/guides/`. New compliance service routes omit repeated locality terms, while the metadata and content retain Patna/Bihar intent. Existing coworking URLs are preserved.
+
+`content/url-migrations.json` is the authoritative legacy-to-canonical mapping. The migration physically moves HTML to directory `index.html` files and updates links, schema URLs, metadata keys, the sitemap and service manifests. Legacy `.html` and extensionless aliases redirect directly to the canonical destination. Static assets remain under their existing paths, including `/seo/assets/`.
+
+Host rules are supplied in `vercel.json` (Vercel), `_redirects` (Cloudflare Pages/Netlify), and `.htaccess` (Apache with mod_rewrite/AllowOverride). Deploy the complete repository, including the host configuration. Other hosts require equivalent permanent redirect rules; plain file hosting alone does not implement them. Production redirects must be verified after deployment. No domain or DNS changes are included.
+
+Older content generators automatically run the migration after generation. The primary metadata tool resolves legacy file names; all-page enrichment writes the guide directory at its canonical location. After content generation or manual additions run:
+
+```sh
+python3 tools/migrate_urls.py
+python3 tools/enrich_site_metadata.py
+python3 tools/check_urls.py
+python3 tools/check_metadata.py
+python3 tools/check_seo.py
+python3 tools/check_coworking.py
+```
+
+The migration is safe to rerun. `content/url-migration-report.csv` records the old URL, destination and intended 301 status. The sitemap contains 227 canonical indexable URLs; the 404 page remains excluded. The local Python development server serves the directory URLs but does not implement the host redirect rules.

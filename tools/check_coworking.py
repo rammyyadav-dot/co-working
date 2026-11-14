@@ -35,7 +35,7 @@ for row in rows:
         answers.append(qa['acceptedAnswer']['text'])
     assert {'plans','location','faqs','enquire','main'}<=p.ids,path
 assert len(set(answers))==400
-for path in list(ROOT.glob('*.html'))+list((ROOT/'seo').glob('*.html'))+[ROOT/'coworking/index.html']+[ROOT/x['file'] for x in rows]:
+for path in list(ROOT.rglob('*.html')):
     p=parse(path)
     assert '/coworking/' in p.links,path
     for link in p.links:
@@ -47,5 +47,5 @@ for path in list(ROOT.glob('*.html'))+list((ROOT/'seo').glob('*.html'))+[ROOT/'c
         assert target.is_file(),(path,link)
         if u.fragment:assert unquote(u.fragment) in parse(target).ids,(path,link)
 print('PASS: 100 individual landing pages + directory; unique metadata; 400 unique visible answers matching FAQ schema.')
-print('PASS: all 209 HTML pages reach Coworking; all internal destinations, assets and fragments exist.')
+print('PASS: all HTML pages reach Coworking; all internal destinations, assets and fragments exist.')
 print('PASS: required lead fields, name/tel autocomplete, truthful enquiry flow, single H1, title/meta limits and no raw placeholders.')

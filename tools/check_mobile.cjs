@@ -5,8 +5,11 @@ const path = require('node:path');
 const {chromium} = require('playwright');
 const root = path.join(__dirname,'..');
 const origin = 'http://127.0.0.1:8000';
-const primary = fs.readdirSync(root).filter(x=>x.endsWith('.html'));
-const guides = fs.readdirSync(path.join(root,'seo')).filter(x=>x.endsWith('.html')).map(x=>'seo/'+x);
+const routes = JSON.parse(fs.readFileSync(path.join(root,'content/url-migrations.json')));
+const route = file => routes['/'+file] || '/'+file;
+const allFiles = Object.keys(JSON.parse(fs.readFileSync(path.join(root,'content/seo-metadata.json'))));
+const primary = allFiles.filter(x=>!x.startsWith('guides/'));
+const guides = allFiles.filter(x=>x.startsWith('guides/'));
 const widths = [320,375,390,768,1024,1440];
 (async () => {
   const browser = await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
@@ -24,7 +27,7 @@ const widths = [320,375,390,768,1024,1440];
     page.on('response',r=>{if(r.url().startsWith(origin)&&r.status()>=400) failedLocal.push([r.url(),r.status()]);});
     let checks=0;
     for (const file of (process.argv.includes('--interactions-only') ? [] : [...primary,...guides])) {
-      const response = await page.goto(origin+'/'+file,{waitUntil:'load'});
+      const response = await page.goto(origin+route(file),{waitUntil:'load'});
       assert.equal(response.status(),200,file);
       assert.equal(await page.locator('h1').count(),1,file);
       assert.equal(await page.locator('.site-header').count(),1,file);
@@ -63,7 +66,7 @@ const widths = [320,375,390,768,1024,1440];
       await page.keyboard.press('Escape');
       assert.equal(await toggle.getAttribute('aria-expanded'),'false');
       assert(await toggle.evaluate(el=>el===document.activeElement));
-      if(file.startsWith('seo/') && file!=='seo/index.html') {
+      if(file.startsWith('guides/') && file!=='guides/index.html') {
         assert(await page.locator('.table-scroll').evaluate(el=>el.scrollWidth>el.clientWidth),'Expected local table scroll');
         await page.locator('.table-scroll').focus();
         await page.keyboard.press('ArrowRight');
@@ -73,13 +76,13 @@ const widths = [320,375,390,768,1024,1440];
     }
     if(checks) console.log(`PASS: ${primary.length+guides.length} pages × ${widths.length} widths (${checks} layouts); no page overflow or clipped text; mobile menus and 100 guide tables/FAQs.`);
     for (const file of ['company_registration.html','business_services.html','tax_compliance.html','jobreadyvirtualoffice.html']) {
-      await page.goto(origin+'/'+file);
+      await page.goto(origin+route(file));
       const form=page.locator('form[data-enquiry]');
       assert.equal(await form.count(),1);
       assert(await form.locator('input,select,textarea').evaluateAll(elements=>elements.every(el=>el.labels.length&&parseFloat(getComputedStyle(el).fontSize)>=16&&el.getBoundingClientRect().height>=44)));
       assert.equal(await form.locator('input[type=tel]').getAttribute('autocomplete'),'tel');
       await form.locator('button[type=submit]').click();
-      assert.equal(new URL(page.url()).pathname,'/'+file,'Invalid form navigated');
+      assert.equal(new URL(page.url()).pathname,route(file),'Invalid form navigated');
       assert(!(await form.evaluate(el=>el.checkValidity())));
       await form.locator('input[name=Name]').fill('Mobile UX Test');
       await form.locator('input[name=Phone]').fill('abc');
@@ -100,7 +103,7 @@ const widths = [320,375,390,768,1024,1440];
       await page.unroute('https://wa.me/**');
     }
     console.log('PASS: four enquiry forms; accessible labels, mobile input sizes/keyboards, invalid input blocked, entered details retained in intercepted WhatsApp drafts. No messages sent.');
-    await page.goto(origin+'/seo/');
+    await page.goto(origin+'/guides/');
     await page.locator('[data-filter="2"]').click();
     assert.equal(await page.locator('[data-guide]:visible').count(),15);
     await page.locator('[data-filter="all"]').click();
@@ -108,7 +111,7 @@ const widths = [320,375,390,768,1024,1440];
     assert.equal(await page.locator('[data-guide]:visible').count(),2);
     await page.locator('#guide-search').fill('not-a-workspace-123');
     assert(await page.locator('#no-results').isVisible());
-    await page.goto(origin+'/index.html');
+    await page.goto(origin+'/');
     await page.setViewportSize({width:812,height:375});
     await page.locator('.site-menu-toggle').click();
     const contact=page.locator('#site-navigation a').last();
@@ -121,13 +124,13 @@ const widths = [320,375,390,768,1024,1440];
     await page.emulateMedia({reducedMotion:'reduce'});
     assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior),'auto');
     for(const file of ['index.html','company_registration.html','seo/index.html','seo/best-coworking-space-in-patna.html']) {
-      await page.goto(origin+'/'+file);
+      await page.goto(origin+route(file));
       await page.setViewportSize({width:390,height:844});
       await page.screenshot({path:'/tmp/mobile-'+file.replaceAll('/','-')+'.png'});
     }
     const nojs = await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});
     await nojs.route('**/*',r=>r.request().url().startsWith(origin)?r.continue():r.abort());
-    const fallback=await nojs.newPage();await fallback.goto(origin+'/index.html');
+    const fallback=await nojs.newPage();await fallback.goto(origin+'/');
     assert(await fallback.locator('#site-navigation').isVisible(),'Navigation unavailable without JS');
     assert.deepEqual(errors,[]);assert.deepEqual(failedLocal,[]);assert.deepEqual(externalCode,[]);
     console.log('PASS: mobile directory search, short landscape menu, desktop navigation, reduced motion, no-JS navigation; no JS errors or missing local assets; no external code/font dependencies.');

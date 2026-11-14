@@ -1,7 +1,12 @@
 # JobReady Workspace
 Pages:
 /
-/jobready_virtual_office.html
-/company_registration.html
-/business_services.html
-/tax-compliance.html
+/coworking/
+/virtual-office/
+/company-registration/
+/business-services/
+/tax-compliance/
+/managed-offices/
+/guides/
+
+Sitemap: https://coworking.jobreadybpo.com/sitemap.xml

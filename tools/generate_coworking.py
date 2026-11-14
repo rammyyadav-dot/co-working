@@ -142,3 +142,6 @@ for path in ['/coworking/']+[d['proposed_path'] for d in DATA]:
     if url not in present:ET.SubElement(ET.SubElement(xml,f'{{{ns}}}url'),f'{{{ns}}}loc').text=url
 ET.indent(tree,space='  ');tree.write(sitemap,encoding='utf-8',xml_declaration=True)
 print(f'Generated {len(DATA)} HTML landing pages, directory, metadata manifest; refreshed shared headers and sitemap.')
+
+from migrate_urls import main as migrate
+migrate()
