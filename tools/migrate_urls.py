@@ -82,6 +82,6 @@ def main():
         apache+=['RewriteCond %{THE_REQUEST} "\\s/+'+re.escape(old.lstrip('/'))+'(?:[?\\s])" [NC]','RewriteRule ^'+re.escape(old.lstrip('/'))+'$ '+new+' [R=301,L,NE]']
     (ROOT/'.htaccess').write_text('\n'.join(apache)+'\n')
     with (ROOT/'content/url-migration-report.csv').open('w',newline='') as f:
-        w=csv.writer(f);w.writerow(['Old URL','Canonical URL','Redirect status']);w.writerows((BASE+a,BASE+b,301) for a,b in ROUTES.items())
+        w=csv.writer(f,lineterminator="\n");w.writerow(['Old URL','Canonical URL','Redirect status']);w.writerows((BASE+a,BASE+b,301) for a,b in ROUTES.items())
     print(f'Clean URLs applied: {len(ROUTES)} legacy paths; permanent redirects and sitemap updated.')
 if __name__=='__main__':main()
