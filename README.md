@@ -93,3 +93,8 @@ The migration is safe to rerun. `content/url-migration-report.csv` records the o
 `/government-tender-consultancy/` is the Patna/Bihar tender and GeM service landing page. It covers eligibility, technical bids, BOQ review, EMD/PBG records, sector-specific preparation and post-award billing. It includes ten visible FAQs matching FAQPage schema, Service/LocalBusiness/Breadcrumb data, a labelled WhatsApp enquiry with an optional deadline, and links from Business Services, Company Registration and Contractor Accounts.
 
 `content/tender-keywords.csv` contains 50 editorial keyword targets across ten intent clusters. They are not measured search-volume rankings. `content/tender-seo-notes.md` records the targeting, geo data and content boundaries. The page is independent of government portals and makes no award or payment guarantee. Do not send confidential pricing or authentication credentials through its initial enquiry.
+
+
+## Bihar GST practical guidance
+
+Five focused pages cover `/bihar-gst-portal-help/`, `/gst-registration-fees/`, `/gst-physical-verification/`, `/gst-noc-rented-shop/` and `/gst-government-contractors/`. The existing `/gst-returns-notices/` page covers the sixth requested topic: notice reply and assessment support. The broad registration, tax and verification/NOC pages link to the individual topics. NOC sample fields are intentionally illustrative and need case-specific review. No unverified government helpline numbers, automatic EMD exemptions, fixed inspection periods or guaranteed outcomes are asserted.
