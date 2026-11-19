@@ -8,23 +8,9 @@
   const header = document.querySelector('.site-header');
   const toggle = header?.querySelector('.site-menu-toggle');
   const nav = header?.querySelector('.site-navigation');
-  const groups = [...(header?.querySelectorAll('.site-nav-group') || [])];
-  const closeGroups = () => groups.forEach(group => { group.open = false; });
-  groups.forEach(group => {
-    group.addEventListener('toggle', () => {
-      if (group.open) groups.forEach(other => { if (other !== group) other.open = false; });
-    });
-  });
-  document.addEventListener('click', e => {
-    groups.forEach(group => { if (!group.contains(e.target)) group.open = false; });
-  });
-  document.addEventListener('focusin', e => {
-    groups.forEach(group => { if (!group.contains(e.target)) group.open = false; });
-  });
   if (toggle && nav) {
     const close = (restoreFocus = false) => {
       header.dataset.open = 'false';
-      closeGroups();
       toggle.setAttribute('aria-expanded', 'false');
       toggle.querySelector('span').textContent = 'Menu';
       if (restoreFocus) toggle.focus();
@@ -37,18 +23,13 @@
     });
     nav.addEventListener('click', e => {if (e.target.closest('a')) close();});
     document.addEventListener('keydown', e => {
-      if (e.key !== 'Escape') return;
-      const openGroup = groups.find(group => group.open);
-      if (openGroup) {
-        openGroup.open = false;
-        openGroup.querySelector('summary').focus();
-      } else if (header.dataset.open === 'true') close(true);
+      if (e.key === 'Escape' && header.dataset.open === 'true') close(true);
     });
     document.addEventListener('click', e => {if (!header.contains(e.target)) close();});
     header.addEventListener('focusout', () => {
       setTimeout(() => {if (!header.contains(document.activeElement)) close();}, 0);
     });
-    matchMedia('(min-width:1100px)').addEventListener('change', () => close());
+    matchMedia('(min-width:768px)').addEventListener('change', () => close());
   }
   document.querySelectorAll('form[data-enquiry]').forEach(form => {
     form.addEventListener('submit', e => {

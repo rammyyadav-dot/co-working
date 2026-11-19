@@ -242,7 +242,7 @@ def main():
             title, desc = metadata(topic)
             writer.writerow([topic['keyword'],title,desc,f'{BASE}/seo/{topic["slug"]}.html',f'{BASE}/seo/assets/social/{topic["slug"]}.png'])
     tree = Element('urlset', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
-    paths = ['/','/jobreadyvirtualoffice.html','/company_registration.html','/business_services.html','/tax_compliance.html','/enterprise.html','/seo/']
+    paths = ['/','/pricing/','/jobreadyvirtualoffice.html','/company_registration.html','/business_services.html','/tax_compliance.html','/enterprise.html','/seo/']
     paths += ['/seo/'+t['slug']+'.html' for t in topics]
     for path in paths:
         SubElement(SubElement(tree,'url'),'loc').text=BASE+path
